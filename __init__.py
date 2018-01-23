@@ -75,14 +75,14 @@ class WikihowScrapper(object):
     def __init__(self):
         self.last = None
 
-    def search_wikihow(self, search_term):
+    def _search_wikihow(self, search_term):
         LOG.info("Seaching wikihow for " + search_term)
         search_url = "http://www.wikihow.com/wikiHowTo?search="
         search_term_query = search_term.replace(" ", "+")
         search_url += search_term_query
         # print search_url
         # open url
-        html = self.get_html(search_url)
+        html = self._get_html(search_url)
         soup = bs4.BeautifulSoup(html, "html.parser")
         # parse for links
         list = []
@@ -92,15 +92,15 @@ class WikihowScrapper(object):
             list.append(url)
         return list
 
-    def get_html(self, url):
+    def _get_html(self, url):
         headers = {'User-Agent': "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:41.0) Gecko/20100101 Firefox/41.0"}
         r = requests.get(url, headers=headers)
         html = r.text.encode("utf8")
         return html
 
-    def get_steps(self, url):
+    def _get_steps(self, url):
         # open url
-        html = self.get_html(url)
+        html = self._get_html(url)
         soup = bs4.BeautifulSoup(html, "html.parser")
 
         # get title
@@ -156,14 +156,14 @@ class WikihowScrapper(object):
 
     def get_how_to(self, subject):
         how_tos = {}
-        links = self.search_wikihow(subject)
+        links = self._search_wikihow(subject)
         if links == []:
             LOG.info("No wikihow results")
             return None
         link = links[0]
         how_to = {}
         # get steps and pics
-        title, steps, descript, pics, link = self.get_steps(link)
+        title, steps, descript, pics, link = self._get_steps(link)
         how_to["title"] = title
         how_to["steps"] = steps
         how_to["detailed"] = descript
@@ -175,14 +175,14 @@ class WikihowScrapper(object):
 
     def get_how_tos(self, subject, number=3):
         how_tos = {}
-        links = self.search_wikihow(subject)
+        links = self._search_wikihow(subject)
         if links == []:
             LOG.info("No wikihow results")
             return
         for link in links:
             how_to = {}
             # get steps and pics
-            title, steps, descript, pics, link = self.get_steps(link)
+            title, steps, descript, pics, link = self._get_steps(link)
             how_to["title"] = title
             how_to["steps"] = steps
             how_to["detailed"] = descript
@@ -197,7 +197,7 @@ class WikihowScrapper(object):
     def random_how_to(self):
         link = "http://www.wikihow.com/Special:Randomizer"
         # get steps and pics
-        title, steps, descript, pics, link = self.get_steps(link)
+        title, steps, descript, pics, link = self._get_steps(link)
         how_to = {}
         how_to["title"] = title
         how_to["steps"] = steps

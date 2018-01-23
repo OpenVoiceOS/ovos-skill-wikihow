@@ -76,7 +76,7 @@ class WikihowScrapper(object):
         # print search_url
         # open url
         html = self.get_html(search_url)
-        soup = bs4.BeautifulSoup(html, "lxml")
+        soup = bs4.BeautifulSoup(html, "html5lib")
         # parse for links
         list = []
         links = soup.findAll('a', attrs={'class': "result_link"})

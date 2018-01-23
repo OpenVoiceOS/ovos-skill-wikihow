@@ -31,9 +31,12 @@ class WikiHowSkill(MycroftSkill):
 
         self.register_intent_file("howto.intent", self.handle_how_to_intent)
 
-    def speak_how_to(self, how_to):
+    def speak_how_to(self, how_to, detailed=False):
         title = how_to["title"]
-        steps = how_to["steps"]
+        if detailed:
+            steps = how_to["detailed"]
+        else:
+            steps = how_to["steps"]
         self.speak(title)
         i = 0
         for step in steps:
@@ -57,9 +60,7 @@ class WikiHowSkill(MycroftSkill):
 
     def handle_detailed_how_to_intent(self, message):
         how_to = self.wikihow.last
-        detailed = how_to["detailed"]
-        LOG.debug(detailed)
-        self.speak(detailed)
+        self.speak_how_to(how_to, detailed=True)
 
     def handle_random_how_to_intent(self, message):
         how_to = self.wikihow.random_how_to()

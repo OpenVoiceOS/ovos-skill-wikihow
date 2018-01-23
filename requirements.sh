@@ -1,1 +1,1 @@
-sudo apt-get install libxml2 -y
+sudo apt-get install libxml2-dev -y

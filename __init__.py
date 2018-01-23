@@ -25,7 +25,22 @@ class WikiHowSkill(MycroftSkill):
             require("TellMoreKeyword").require("PreviousHowto").build()
         self.register_intent(intent, self.handle_detailed_how_to_intent)
 
+        intent = IntentBuilder("RepeatHowtoIntent"). \
+            require("RepeatKeyword").require("PreviousHowto").build()
+        self.register_intent(intent, self.handle_repeat_how_to_intent)
+
         self.register_intent_file("howto.intent", self.handle_how_to_intent)
+
+    def speak_how_to(self, how_to):
+        title = how_to["title"]
+        steps = how_to["steps"]
+        self.speak(title)
+        i = 0
+        for step in steps:
+            self.speak("step " + str(i) + ", " + step)
+            i += 1
+            sleep(0.2)
+        self.set_context("PreviousHowto", title)
 
     def handle_how_to_intent(self, message):
         query = message.data["query"]
@@ -33,40 +48,22 @@ class WikiHowSkill(MycroftSkill):
         if not how_to:
             self.speak_dialog("howto.failure")
             self.remove_context("PreviousHowto")
-            return
+        else:
+            self.speak_how_to(how_to)
 
-        title = how_to["title"]
-        steps = how_to["steps"]
-        self.speak(title)
-        i = 0
-        for step in steps:
-            self.speak("step " + str(i) + ", " + step)
-            i += 1
-            sleep(0.2)
-        self.set_context("PreviousHowto", title)
+    def handle_repeat_how_to_intent(self, message):
+        how_to = self.wikihow.last
+        self.speak_how_to(how_to)
 
     def handle_detailed_how_to_intent(self, message):
         how_to = self.wikihow.last
-        title = how_to["title"]
-        self.set_context("PreviousHowto", title)
         detailed = how_to["detailed"]
         LOG.debug(detailed)
         self.speak(detailed)
 
     def handle_random_how_to_intent(self, message):
         how_to = self.wikihow.random_how_to()
-        title = how_to["title"]
-        steps = how_to["steps"]
-        self.speak(title)
-        i = 0
-        for step in steps:
-            self.speak("step " + str(i) + ", " + step)
-            i += 1
-            sleep(0.2)
-        self.set_context("PreviousHowto", title)
-
-    def stop(self):
-        pass
+        self.speak_how_to(how_to)
 
 
 def create_skill():

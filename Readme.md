@@ -7,7 +7,8 @@ information can be asked after
 
 ## Examples
 * "how to boil an egg"
-* "random how to"
+* "repeat"
+* "give me a random how to"
 * "tell me more"
 
 ## Credits

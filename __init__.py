@@ -43,11 +43,9 @@ class WikiHowSkill(MycroftSkill):
     def handle_detailed_how_to_intent(self, message):
         how_to = self.wikihow.last
         self.set_context("PreviousHowto", how_to)
-        title = how_to["title"]
-        steps = how_to["steps"]
-        self.speak(title)
-        for step in steps:
-            self.speak(step)
+        detailed = how_to["detailed"]
+        LOG.debug(detailed)
+        self.speak(detailed)
 
     def handle_random_how_to_intent(self, message):
         how_to = self.wikihow.random_how_to()

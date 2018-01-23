@@ -76,7 +76,7 @@ class WikihowScrapper(object):
         # print search_url
         # open url
         html = self.get_html(search_url)
-        soup = bs4.BeautifulSoup(html, "html5lib")
+        soup = bs4.BeautifulSoup(html, "html.parser")
         # parse for links
         list = []
         links = soup.findAll('a', attrs={'class': "result_link"})
@@ -94,7 +94,7 @@ class WikihowScrapper(object):
     def get_steps(self, url):
         # open url
         html = self.get_html(url)
-        soup = bs4.BeautifulSoup(html, "html5lib")
+        soup = bs4.BeautifulSoup(html, "html.parser")
 
         # get title
         title_html = soup.findAll("h1", {"class": "firstHeading"})

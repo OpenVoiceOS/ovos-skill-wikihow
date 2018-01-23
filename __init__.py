@@ -23,7 +23,7 @@ class WikiHowSkill(MycroftSkill):
 
         intent = IntentBuilder("TellMoreHowtoIntent"). \
             require("TellMoreKeyword").require("PreviousHowto").build()
-        self.register_intent(intent, self.handle_random_how_to_intent)
+        self.register_intent(intent, self.handle_detailed_how_to_intent)
 
         self.register_intent_file("howto.intent", self.handle_how_to_intent)
 

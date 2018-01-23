@@ -33,28 +33,30 @@ class WikiHowSkill(MycroftSkill):
             self.speak_dialog("howto.failure")
             self.remove_context("PreviousHowto")
             return
-        self.set_context("PreviousHowto", how_to)
+
         title = how_to["title"]
         steps = how_to["steps"]
         self.speak(title)
         for step in steps:
             self.speak(step)
+        self.set_context("PreviousHowto", title)
 
     def handle_detailed_how_to_intent(self, message):
         how_to = self.wikihow.last
-        self.set_context("PreviousHowto", how_to)
+        title = how_to["title"]
+        self.set_context("PreviousHowto", title)
         detailed = how_to["detailed"]
         LOG.debug(detailed)
         self.speak(detailed)
 
     def handle_random_how_to_intent(self, message):
         how_to = self.wikihow.random_how_to()
-        self.set_context("PreviousHowto", how_to)
         title = how_to["title"]
         steps = how_to["steps"]
         self.speak(title)
         for step in steps:
             self.speak(step)
+        self.set_context("PreviousHowto", title)
 
     def stop(self):
         pass

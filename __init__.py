@@ -38,7 +38,7 @@ class WikiHowSkill(MycroftSkill):
         else:
             steps = how_to["steps"]
         self.speak(title)
-        i = 0
+        i = 1
         for step in steps:
             self.speak("step " + str(i) + ", " + step)
             i += 1

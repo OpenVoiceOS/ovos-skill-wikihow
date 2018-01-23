@@ -6,6 +6,7 @@ from mycroft.util.log import LOG
 
 import requests
 import bs4
+from time import sleep
 
 __author__ = 'jarbas'
 
@@ -37,8 +38,11 @@ class WikiHowSkill(MycroftSkill):
         title = how_to["title"]
         steps = how_to["steps"]
         self.speak(title)
+        i = 0
         for step in steps:
-            self.speak(step)
+            self.speak("step " + str(i) + ", " + step)
+            i += 1
+            sleep(0.2)
         self.set_context("PreviousHowto", title)
 
     def handle_detailed_how_to_intent(self, message):
@@ -54,8 +58,11 @@ class WikiHowSkill(MycroftSkill):
         title = how_to["title"]
         steps = how_to["steps"]
         self.speak(title)
+        i = 0
         for step in steps:
-            self.speak(step)
+            self.speak("step " + str(i) + ", " + step)
+            i += 1
+            sleep(0.2)
         self.set_context("PreviousHowto", title)
 
     def stop(self):

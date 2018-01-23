@@ -94,7 +94,7 @@ class WikihowScrapper(object):
     def get_steps(self, url):
         # open url
         html = self.get_html(url)
-        soup = bs4.BeautifulSoup(html, "lxml")
+        soup = bs4.BeautifulSoup(html, "html5lib")
 
         # get title
         title_html = soup.findAll("h1", {"class": "firstHeading"})

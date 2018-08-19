@@ -30,12 +30,15 @@ class WikiHowSkill(MycroftSkill):
     @intent_file_handler('howto.intent')
     def handle_how_to_intent(self, message):
         query = message.data["query"]
-        how_tos = self.wikihow.how_to(query)
-        if not len(how_tos):
+        how_tos = self.wikihow.how_to(query, num=1)
+        if not how_tos:
             self.speak_dialog("howto.failure")
             self.remove_context("PreviousHowto")
         else:
-            self.speak_how_to(how_tos[0])
+            # TODO allow user to select how to
+            title = list(how_tos.keys())[0]
+            how_to = how_tos[title]
+            self.speak_how_to(how_to)
 
     @intent_handler(IntentBuilder("RepeatHowtoIntent"). \
             require("RepeatKeyword").require("PreviousHowto"))

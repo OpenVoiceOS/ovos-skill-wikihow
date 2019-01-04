@@ -1,9 +1,12 @@
-## How to
-Scraps wikihow for answers
+# <img src='wikihow.png' width='50' height='50' style='vertical-align:bottom'/> How to
+How to do nearly everything.
 
-## Description
-Tries to anser "how to" questions with step by step guide, more detailed
-information can be asked after
+## About
+Ever wondered about how to boil an egg, or the best way to brush your teeths. This skill enables
+Mycroft to anser a lot of "how to" questions with step by step guide. More detailed
+information can be asked afterwods.
+
+Information is comming from [wikihow.com](https://www.wikihow.com/)
 
 ## Examples
 * "how to boil an egg"
@@ -13,3 +16,10 @@ information can be asked after
 
 ## Credits
 jarbasAI
+
+## Category
+**Daily**
+Information
+
+## Tags
+#howto

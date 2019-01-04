@@ -2,7 +2,8 @@
 How to do nearly everything.
 
 ## About
-This skill tries to anser "how to" questions with step by step guide. More detailed
+Ever wondered about how to boil an egg, or the best way to brush your teeths. This skill enables
+Mycroft to anser a lot of "how to" questions with step by step guide. More detailed
 information can be asked afterwods.
 
 Information is comming from [wikihow.com](https://www.wikihow.com/)

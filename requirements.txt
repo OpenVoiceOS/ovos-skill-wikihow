@@ -1,1 +1,1 @@
-pywikihow
+pywikihow>=0.5.5

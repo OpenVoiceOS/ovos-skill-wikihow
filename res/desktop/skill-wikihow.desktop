@@ -1,0 +1,10 @@
+[Desktop Entry]
+Terminal=false
+Type=Application
+Name=WikiHow
+Exec=mycroft-gui-app --hideTextInput --skill=skill-wikihow.jarbasskills.home
+Icon=skill-xkcd.png
+Categories=VoiceApp
+StartupNotify=false
+X-DBUS-StartupType=None
+X-KDE-StartupNotify=false

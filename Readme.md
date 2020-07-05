@@ -9,6 +9,9 @@ information can be asked afterwods.
 
 Information is comming from [wikihow.com](https://www.wikihow.com/)
 
+![](gui2.gif)
+![](gui.gif)
+
 ## Examples
 * "how to boil an egg"
 * "repeat"

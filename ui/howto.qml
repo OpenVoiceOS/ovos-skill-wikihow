@@ -17,7 +17,7 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 2.3 as Controls
-import QtQuick.Layouts 1.3
+import QtQuick.Layouts 1.4
 import org.kde.kirigami 2.8 as Kirigami
 import QtGraphicalEffects 1.0
 import Mycroft 1.0 as Mycroft
@@ -26,8 +26,6 @@ Mycroft.Delegate {
     property var imageSource: sessionData.imgLink
     property var title: sessionData.title
     property var caption: sessionData.caption
-    property bool hasTitle: sessionData.title.length > 0 ? true : false
-    property bool hasCaption: sessionData.caption.length > 0 ? true : false
 
     Component.onCompleted: {
         comicView.forceActiveFocus()
@@ -35,6 +33,7 @@ Mycroft.Delegate {
 
     RowLayout {
         anchors.fill: parent
+
 
         Controls.RoundButton {
             id: previousButton
@@ -61,7 +60,7 @@ Mycroft.Delegate {
             }
 
             onClicked: {
-                triggerGuiEvent('skill-how-to.jarbasskills.prev', {})
+                triggerGuiEvent('skill-wikihow.jarbasskills.prev', {})
             }
 
             Keys.onReturnPressed: {
@@ -69,21 +68,9 @@ Mycroft.Delegate {
             }
         }
 
-        Kirigami.Heading {
-            id: HowToTitle
-            visible: hasTitle
-            enabled: hasTitle
-            Layout.fillWidth: true
-            Layout.preferredHeight: paintedHeight + Kirigami.Units.largeSpacing
-            level: 3
-            text: sessionData.title
-            wrapMode: Text.Wrap
-            font.family: "Noto Sans"
-            font.weight: Font.Bold
-        }
 
         Image {
-            id: stepView
+            id: comicView
             Layout.fillWidth: true
             Layout.fillHeight: true
             autoTransform: true
@@ -97,8 +84,8 @@ Mycroft.Delegate {
 
             Rectangle {
                 id: systemImageCaptionBox
-                visible: hasCaption
-                enabled: hasCaption
+                visible: true
+                enabled: true
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -119,6 +106,7 @@ Mycroft.Delegate {
                     font.weight: Font.Bold
                 }
             }
+
         }
 
         Controls.RoundButton {
@@ -146,7 +134,7 @@ Mycroft.Delegate {
             }
 
             onClicked: {
-                triggerGuiEvent('skill-how-to.jarbasskills.next', {})
+                triggerGuiEvent('skill-wikihow.jarbasskills.next', {})
             }
 
             Keys.onReturnPressed: {

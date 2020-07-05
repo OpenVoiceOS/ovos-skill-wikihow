@@ -14,12 +14,12 @@ Information is comming from [wikihow.com](https://www.wikihow.com/)
 
 ## Examples
 * "how to boil an egg"
-* "repeat"
 * "give me a random how to"
-* "tell me more"
+* "explain better"
 
 ## Credits
-jarbasAI
+- JarbasAI
+- [Wikihow](https://www.wikihow.com/)
 
 ## Category
 **Daily**

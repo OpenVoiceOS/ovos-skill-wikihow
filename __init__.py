@@ -2,7 +2,6 @@ from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler, intent_file_handler
 from mtranslate import translate
 from time import sleep
-from mycroft.messagebus import Message
 from pywikihow import WikiHow, RandomHowTo
 
 
@@ -23,25 +22,7 @@ class WikiHowSkill(MycroftSkill):
         self.gui.register_handler('skill-wikihow.jarbasskills.prev',
                                   self.handle_prev)
 
-    def handle_next(self, message=None):
-        total = len(self.current_howto["steps"])
-        if message:
-            self.stop() # gui buttons used, abort speech
-        self.current_step += 1
-        if self.current_step >= total:
-            self.current_step = total - 1
-        self.display_howto()
-        self.speak_step()
-
-
-    def handle_prev(self, message=None):
-        self.current_step -= 1
-        if self.current_step < 0:
-            self.current_step = 0
-        self.display_howto()
-        self.speak_step()
-
-
+    # wikihow internals
     def display_howto(self):
         self.gui.clear()
         self.gui["title"] = self.current_howto["title"]
@@ -61,7 +42,7 @@ class WikiHowSkill(MycroftSkill):
         #                    title = self.gui["title"],
         #                    caption=self.gui["caption"],
         #                    fill='PreserveAspectFit', override_idle=True)
-        self.set_context("PreviousHowto", self.current_howto["title"])
+        self.set_context("WikiHow", self.current_howto["title"])
 
     def _tx(self, data):
         if data["title"] not in self.translate_cache:
@@ -115,14 +96,14 @@ class WikiHowSkill(MycroftSkill):
                            "step": steps[self.current_step]},
                           wait=True)
 
-    def speak_how_to(self, how_to=None):
+    def speak_how_to(self, how_to=None, start_step=-1):
         self.stop()
         self.speaking = True
         how_to = how_to or self.current_howto
         title = how_to["title"]
         total = len(how_to["steps"])
         self.speak(title, wait=True)
-        self.current_step = -1
+        self.current_step = start_step
         for i in range(total):
             if self.stop_signaled:
                 self.stop_signaled = False
@@ -130,7 +111,7 @@ class WikiHowSkill(MycroftSkill):
             self.handle_next()
             sleep(1)
 
-
+    # intents
     @intent_file_handler('howto.intent')
     def handle_how_to_intent(self, message):
         query = message.data["query"]
@@ -139,17 +120,17 @@ class WikiHowSkill(MycroftSkill):
         how_to = self.get_how_to(query)
         if not how_to:
             self.speak_dialog("howto.failure")
-            self.remove_context("PreviousHowto")
+            self.remove_context("WikiHow")
         else:
             self.speak_how_to()
 
     @intent_handler(IntentBuilder("RepeatHowtoIntent"). \
-            require("RepeatKeyword").require("PreviousHowto"))
+            require("RepeatKeyword").require("WikiHow"))
     def handle_repeat_how_to_intent(self, message):
         self.speak_step()
 
     @intent_handler(IntentBuilder("TellMoreHowtoIntent"). \
-            require("TellMoreKeyword").require("PreviousHowto"))
+            require("TellMoreKeyword").require("WikiHow"))
     def handle_detailed_how_to_intent(self, message):
         self.detailed = True
         self.stop()
@@ -172,11 +153,44 @@ class WikiHowSkill(MycroftSkill):
         self.current_howto = how_to
         self.speak_how_to(how_to)
 
-    def stop(self):
+    @intent_handler(IntentBuilder("NextStepIntent")
+                    .require("next").optionally("picture")
+                    .require("WikiHow"))
+    def handle_next(self, message=None):
+        total = len(self.current_howto["steps"])
+        if message:
+            self.stop()  # gui buttons used, abort speech
+        self.current_step += 1
+        if self.current_step >= total:
+            self.current_step = total - 1
+        self.display_howto()
+        self.speak_step()
+
+    @intent_handler(IntentBuilder("PrevStepIntent")
+                    .require("previous").optionally("picture")
+                    .require("WikiHow"))
+    def handle_prev(self, message=None):
+        self.current_step -= 1
+        if self.current_step < 0:
+            self.current_step = 0
+        self.display_howto()
+        self.speak_step()
+
+    @intent_handler(IntentBuilder("ContinueIntent")
+                    .require("continue").optionally("picture")
+                    .require("WikiHow"))
+    def handle_continue(self, message=None):
+        self.speak_how_to(start_step=self.current_step)
+
+    @intent_handler(IntentBuilder("PauseIntent")
+                    .require("pause").optionally("HowToKeyword")
+                    .require("WikiHow"))
+    def stop(self, message=None):
         if self.speaking:
             self.speaking = False
             self.stop_signaled = True
             return True
+
         return False
 
 def create_skill():

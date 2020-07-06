@@ -147,7 +147,7 @@ class WikiHowSkill(MycroftSkill):
         if lang not in self.wikihow.lang2url:
             tx = True
             lang = "en"
-        how_to = RandomHowTo(lang=lang)
+        how_to = RandomHowTo(lang=lang).as_dict()
         if tx:
             how_to = self._tx(how_to)
         self.current_howto = how_to

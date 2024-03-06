@@ -1,13 +1,15 @@
-from adapt.intent import IntentBuilder
-from mycroft.skills.core import MycroftSkill, intent_handler, intent_file_handler
-from mtranslate import translate
 from time import sleep
+
+from ovos_workshop.decorators import intent_handler
+from ovos_workshop.intents import IntentBuilder
+from ovos_workshop.skills import OVOSSkill
 from pywikihow import WikiHow, RandomHowTo
 
 
-class WikiHowSkill(MycroftSkill):
-    def __init__(self):
-        super(WikiHowSkill, self).__init__("WikiHowSkill")
+class WikiHowSkill(OVOSSkill):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.current_howto = None
         self.current_step = 0
         self.detailed = False
@@ -28,17 +30,20 @@ class WikiHowSkill(MycroftSkill):
         self.gui["title"] = self.current_howto["title"]
         if self.detailed:
             self.gui["caption"] = self.current_howto["steps"][
-                self.current_step]["description"] or self.current_howto["steps"][self.current_step]["summary"]
+                                      self.current_step]["description"] or self.current_howto[
+                                      "steps"][self.current_step]["summary"]
         else:
-            self.gui["caption"] = self.current_howto["steps"][self.current_step]["summary"]
-        self.gui["imgLink"] = self.current_howto["steps"][self.current_step]["picture"]
+            self.gui["caption"] = self.current_howto["steps"][
+                self.current_step]["summary"]
+        self.gui["imgLink"] = self.current_howto["steps"][
+            self.current_step]["picture"]
 
         # TODO fix pywikihow, no pictures currently
-        #self.gui.show_text(self.current_howto["steps"][step]["description"],
+        # self.gui.show_text(self.current_howto["steps"][step]["description"],
         #                   override_idle=True)
 
         self.gui.show_page("howto.qml", override_idle=True)  # TODO finish this
-        #self.gui.show_image(self.gui["imgLink"],
+        # self.gui.show_image(self.gui["imgLink"],
         #                    title = self.gui["title"],
         #                    caption=self.gui["caption"],
         #                    fill='PreserveAspectFit', override_idle=True)
@@ -46,7 +51,7 @@ class WikiHowSkill(MycroftSkill):
 
     def _tx(self, data):
         if data["title"] not in self.translate_cache:
-            translated = translate(data["title"], self.lang)
+            translated = self.translator.translate(data["title"], self.lang)
             self.translate_cache[data["title"]] = translated
             data["title"] = translated
         else:
@@ -54,7 +59,8 @@ class WikiHowSkill(MycroftSkill):
 
         for idx, step in enumerate(data["steps"]):
             if step["summary"] not in self.translate_cache:
-                translated = translate(step["summary"], self.lang)
+                translated = self.translator.translate(step["summary"],
+                                                       self.lang)
                 self.translate_cache[step["summary"]] = translated
                 data["steps"][idx]["summary"] = translated
             else:
@@ -62,7 +68,8 @@ class WikiHowSkill(MycroftSkill):
                     step["summary"]]
 
             if step["description"] not in self.translate_cache:
-                translated = translate(step["description"], self.lang)
+                translated = self.translator.translate(step["description"],
+                                                       self.lang)
                 self.translate_cache[step["description"]] = translated
                 data["steps"][idx]["description"] = translated
             else:
@@ -77,11 +84,11 @@ class WikiHowSkill(MycroftSkill):
         if lang not in self.wikihow.lang2url:
             tx = True
             lang = "en"
-        for how_to in self.wikihow.search(query, max_results=num,  lang=lang):
+        for how_to in self.wikihow.search(query, max_results=num, lang=lang):
             data = how_to.as_dict()
             # translate if lang not supported by wikihpw
             if tx:
-               data = self._tx(data)
+                data = self._tx(data)
         self.current_howto = data
         return data
 
@@ -91,9 +98,10 @@ class WikiHowSkill(MycroftSkill):
         else:
             steps = [s["summary"] for s in self.current_howto["steps"]]
 
-        self.speak_dialog("step",
-                          {"number": self.current_step + 1,
-                           "step": steps[self.current_step]},
+        self.speak_dialog("step", {
+            "number": self.current_step + 1,
+            "step": steps[self.current_step]
+        },
                           wait=True)
 
     def speak_how_to(self, how_to=None, start_step=-1):
@@ -112,7 +120,7 @@ class WikiHowSkill(MycroftSkill):
             sleep(1)
 
     # intents
-    @intent_file_handler('howto.intent')
+    @intent_handler('howto.intent')
     def handle_how_to_intent(self, message):
         query = message.data["query"]
         # TODO allow user to select how to
@@ -125,12 +133,12 @@ class WikiHowSkill(MycroftSkill):
             self.speak_how_to()
 
     @intent_handler(IntentBuilder("RepeatHowtoIntent"). \
-            require("RepeatKeyword").require("WikiHow"))
+                    require("RepeatKeyword").require("WikiHow"))
     def handle_repeat_how_to_intent(self, message):
         self.speak_step()
 
     @intent_handler(IntentBuilder("TellMoreHowtoIntent"). \
-            require("TellMoreKeyword").require("WikiHow"))
+                    require("TellMoreKeyword").require("WikiHow"))
     def handle_detailed_how_to_intent(self, message):
         self.detailed = True
         self.stop()
@@ -138,7 +146,7 @@ class WikiHowSkill(MycroftSkill):
         self.speak_step()
 
     @intent_handler(IntentBuilder("RandomHowtoIntent"). \
-            require("HowToKeyword").require("RandomKeyword"))
+                    require("HowToKeyword").require("RandomKeyword"))
     def handle_random_how_to_intent(self, message):
         self.stop()
         self.detailed = False
@@ -153,9 +161,9 @@ class WikiHowSkill(MycroftSkill):
         self.current_howto = how_to
         self.speak_how_to(how_to)
 
-    @intent_handler(IntentBuilder("NextStepIntent")
-                    .require("next").optionally("picture")
-                    .require("WikiHow"))
+    @intent_handler(
+        IntentBuilder("NextStepIntent").require("next").optionally(
+            "picture").require("WikiHow"))
     def handle_next(self, message=None):
         total = len(self.current_howto["steps"])
         if message:
@@ -166,9 +174,9 @@ class WikiHowSkill(MycroftSkill):
         self.display_howto()
         self.speak_step()
 
-    @intent_handler(IntentBuilder("PrevStepIntent")
-                    .require("previous").optionally("picture")
-                    .require("WikiHow"))
+    @intent_handler(
+        IntentBuilder("PrevStepIntent").require("previous").optionally(
+            "picture").require("WikiHow"))
     def handle_prev(self, message=None):
         self.current_step -= 1
         if self.current_step < 0:
@@ -176,15 +184,15 @@ class WikiHowSkill(MycroftSkill):
         self.display_howto()
         self.speak_step()
 
-    @intent_handler(IntentBuilder("ContinueIntent")
-                    .require("continue").optionally("picture")
-                    .require("WikiHow"))
+    @intent_handler(
+        IntentBuilder("ContinueIntent").require("continue").optionally(
+            "picture").require("WikiHow"))
     def handle_continue(self, message=None):
         self.speak_how_to(start_step=self.current_step)
 
-    @intent_handler(IntentBuilder("PauseIntent")
-                    .require("pause").optionally("HowToKeyword")
-                    .require("WikiHow"))
+    @intent_handler(
+        IntentBuilder("PauseIntent").require("pause").optionally(
+            "HowToKeyword").require("WikiHow"))
     def stop(self, message=None):
         if self.speaking:
             self.speaking = False
@@ -192,7 +200,3 @@ class WikiHowSkill(MycroftSkill):
             return True
 
         return False
-
-def create_skill():
-    return WikiHowSkill()
-

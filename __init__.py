@@ -15,7 +15,6 @@ class WikiHowSkill(OVOSSkill):
         self.detailed = False
         self.speaking = False  # better stop handling
         self.stop_signaled = False
-        self.translate_cache = {}
         self.wikihow = WikiHow()
 
     def initialize(self):
@@ -50,31 +49,17 @@ class WikiHowSkill(OVOSSkill):
         self.set_context("WikiHow", self.current_howto["title"])
 
     def _tx(self, data):
-        if data["title"] not in self.translate_cache:
-            translated = self.translator.translate(data["title"], self.lang)
-            self.translate_cache[data["title"]] = translated
-            data["title"] = translated
-        else:
-            data["title"] = self.translate_cache[data[k]]
+        translated = self.translator.translate(data["title"], self.lang)
+        data["title"] = translated
 
         for idx, step in enumerate(data["steps"]):
-            if step["summary"] not in self.translate_cache:
-                translated = self.translator.translate(step["summary"],
-                                                       self.lang)
-                self.translate_cache[step["summary"]] = translated
-                data["steps"][idx]["summary"] = translated
-            else:
-                data["steps"][idx]["summary"] = self.translate_cache[
-                    step["summary"]]
+            translated = self.translator.translate(step["summary"],
+                                                   self.lang)
+            data["steps"][idx]["summary"] = translated
 
-            if step["description"] not in self.translate_cache:
-                translated = self.translator.translate(step["description"],
-                                                       self.lang)
-                self.translate_cache[step["description"]] = translated
-                data["steps"][idx]["description"] = translated
-            else:
-                data["steps"][idx]["description"] = self.translate_cache[
-                    step["description"]]
+            translated = self.translator.translate(step["description"],
+                                                   self.lang)
+            data["steps"][idx]["description"] = translated
         return data
 
     def get_how_to(self, query, num=1):
@@ -101,8 +86,7 @@ class WikiHowSkill(OVOSSkill):
         self.speak_dialog("step", {
             "number": self.current_step + 1,
             "step": steps[self.current_step]
-        },
-                          wait=True)
+        }, wait=True)
 
     def speak_how_to(self, how_to=None, start_step=-1):
         self.stop()
@@ -190,13 +174,9 @@ class WikiHowSkill(OVOSSkill):
     def handle_continue(self, message=None):
         self.speak_how_to(start_step=self.current_step)
 
-    @intent_handler(
-        IntentBuilder("PauseIntent").require("pause").optionally(
-            "HowToKeyword").require("WikiHow"))
-    def stop(self, message=None):
+    def stop(self):
         if self.speaking:
             self.speaking = False
             self.stop_signaled = True
             return True
-
         return False

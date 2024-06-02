@@ -85,30 +85,28 @@ class WikiHowSkill(CommonQuerySkill):
                 data = self._tx(data)
         return data
 
-    def speak_how_to(self, how_to, sess=None, start_step=-1):
+    def speak_how_to(self, how_to, sess=None):
         sess = sess or SessionManager.get()
         self.session_results[sess.session_id]["speaking"] = True
         title = how_to["title"]
         total = len(how_to["steps"])
-        if self.settings.get("detailed", True):
-            steps = [s["description"] for s in how_to["steps"]]
-        else:
-            steps = [s["summary"] for s in how_to["steps"]]
+        LOG.debug(f"HowTo contains {total} steps")
 
         self.set_context("WikiHow", title)
-        step = start_step
-        for i in range(total):
+
+        for idx, s in enumerate(how_to["steps"]):
             if self.session_results[sess.session_id].get("stop_signaled"):
                 break
-            step += 1
 
-            if how_to["steps"][step].get("picture"):
-                self.gui.show_image(caption=title,
-                                    url=how_to["steps"][step]["picture"])
-            self.speak_dialog("step", {
-                "number": step + 1,
-                "step": steps[step]
-            }, wait=True)
+            if s.get("picture"):
+                self.gui.show_image(caption=title, url=s["picture"])
+
+            if self.settings.get("detailed", True):
+                txt = s["summary"] + "\n" + s["description"]
+            else:
+                txt = s["summary"]
+
+            self.speak_dialog("step", {"number": idx + 1, "step": txt}, wait=True)
 
             sleep(1)
 

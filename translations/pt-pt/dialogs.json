@@ -3,8 +3,8 @@
     "Passo numero {number}, {step}"
   ],
   "howto.failure.dialog": [
-    null,
+    "não sei",
     "Não tenho a certeza",
-    null
+    "tentei pesquisar no wiki how mas não encontrei nada"
   ]
 }

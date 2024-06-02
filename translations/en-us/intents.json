@@ -3,6 +3,11 @@
         "how to {query}",
         "how do i {query}",
         "how can i {query}",
-        "steps for {query}"
+        "steps for {query}",
+        "(explain|) step by step {query}"
+    ],
+    "wikihow.intent": [
+        "search (wiki how|wikihow) (for|) {query}",
+        "what does (wiki how|wikihow) (say|think) about {query}"
     ]
 }

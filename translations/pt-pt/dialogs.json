@@ -1,0 +1,10 @@
+{
+  "step.dialog": [
+    "Passo numero {number}, {step}"
+  ],
+  "howto.failure.dialog": [
+    null,
+    "Não tenho a certeza",
+    null
+  ]
+}

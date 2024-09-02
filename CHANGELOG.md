@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/HEAD)
+## [V0.1.0a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/V0.1.0a2) (2024-09-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/bf2f2c232321b8513cb4e1bcbb6e2b6b4e26a7d2...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/bf2f2c232321b8513cb4e1bcbb6e2b6b4e26a7d2...V0.1.0a2)
 
 **Closed issues:**
 

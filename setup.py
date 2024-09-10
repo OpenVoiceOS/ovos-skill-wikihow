@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-from setuptools import setup
-from os.path import abspath, dirname, join, isfile, isdir
-from os import walk
 import os
+from os import walk, path
+from os.path import abspath, dirname, join, isfile, isdir
+
+from setuptools import setup
 
 # Define package information
 SKILL_CLAZZ = "WikiHowSkill"  # Make sure it matches __init__.py class name
-VERSION = "0.1.0a1"
 URL = "https://github.com/OpenVoiceOS/ovos-skill-wikihow"
 AUTHOR = "OpenVoiceOS"
 EMAIL = "jarbasai@mailfence.com"
@@ -50,7 +50,7 @@ def find_resource_files():
 
 def get_version():
     """ Find the version of this skill"""
-    version_file = join(dirname(__file__), 'version.py')
+    version_file = path.join(path.dirname(__file__), 'version.py')
     major, minor, build, alpha = (None, None, None, None)
     with open(version_file) as f:
         for line in f:
@@ -70,6 +70,7 @@ def get_version():
     if int(alpha):
         version += f"a{alpha}"
     return version
+
 
 # Setup configuration
 setup(

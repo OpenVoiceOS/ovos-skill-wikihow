@@ -1,17 +1,12 @@
 # Changelog
 
-## [V0.1.0a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/V0.1.0a2) (2024-09-02)
+## [0.2.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.0a1) (2024-09-10)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/bf2f2c232321b8513cb4e1bcbb6e2b6b4e26a7d2...V0.1.0a2)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/V0.1.0...0.2.0a1)
 
-**Closed issues:**
+**Implemented enhancements:**
 
-- this has to go to market [\#1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/issues/1)
-
-**Merged pull requests:**
-
-- pt-pt/translate [\#4](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/4) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-- Changed readme.md  [\#2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/2) ([andlo](https://github.com/andlo))
+- chore:automations [\#6](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/6) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

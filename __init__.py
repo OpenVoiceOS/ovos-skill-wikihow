@@ -152,9 +152,10 @@ class WikiHowSkill(CommonQuerySkill):
         self.speak_how_to(data.get("how_to"))
 
     def stop_session(self, sess: Session):
-        if self.session_results[sess.session_id]["is_speaking"]:
-            self.session_results[sess.session_id]["stop_signaled"] = True
-            return True
+        if sess.session_id in self.session_results:
+            if self.session_results[sess.session_id]["is_speaking"]:
+                self.session_results[sess.session_id]["stop_signaled"] = True
+                return True
         return False
 
 

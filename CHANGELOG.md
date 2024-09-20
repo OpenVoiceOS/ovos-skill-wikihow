@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.2.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.0a1) (2024-09-10)
+## [0.2.1a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.1a1) (2024-09-20)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/V0.1.0...0.2.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.0...0.2.1a1)
 
-**Implemented enhancements:**
+**Merged pull requests:**
 
-- chore:automations [\#6](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/6) ([JarbasAl](https://github.com/JarbasAl))
+- fix:stop\_session [\#8](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/8) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

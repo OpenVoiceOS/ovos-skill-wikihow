@@ -1,0 +1,10 @@
+{
+  "step.dialog": [
+    "Pas {number}, {step}"
+  ],
+  "howto.failure.dialog": [
+    "ho desconec",
+    "no n'estic segur",
+    "He provat de cercar a wikihow, però no he trobat res"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "step.dialog": [
+    "Passaggio {number}, {step}"
+  ],
+  "howto.failure.dialog": [
+    "non lo so",
+    "non ne sono sicur(o|a)",
+    "Ho provato a cercare su WikiHow ma non ho trovato nulla"
+  ]
+}

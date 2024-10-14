@@ -1,0 +1,13 @@
+{
+  "howto.intent": [
+    "come {query}",
+    "come (fare|fare a|faccio|faccio a) {query}",
+    "come (posso|poter|potere) (fare|fare a| ) {query}",
+    "passaggi per {query}",
+    "(spiega|mostra|) (passo dopo passo|step by step) {query}"
+  ],
+  "wikihow.intent": [
+    "cerca su (wiki how|wikihow) (per|) {query}",
+    "cosa (dice|pensa) (wiki how|wikihow) (su|su il|sul|su lo|sullo|su la|sulla|su l'|sull'|su i|sui|su gli|sugli|su le|sulle) {query}"
+  ]
+}

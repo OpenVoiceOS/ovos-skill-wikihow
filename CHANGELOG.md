@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.2.3a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.3a1) (2024-10-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.2a3...0.2.3a1)
+
+**Merged pull requests:**
+
+- fix:update\_requirements [\#15](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/15) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.2.2a3](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.2a3) (2024-10-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.2a2...0.2.2a3)
+
+**Merged pull requests:**
+
+- accepted index translation [\#14](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/14) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- accepted addition translation [\#13](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/13) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+
+## [0.2.2a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.2a2) (2024-10-08)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.2a1...0.2.2a2)
+
+**Merged pull requests:**
+
+- Add Catalan translation [\#11](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/11) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+
 ## [0.2.2a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.2a1) (2024-10-08)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.1...0.2.2a1)

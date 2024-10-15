@@ -1,3 +1,0 @@
-[ovos.plugin.skill]
-ovos-skill-wikihow.openvoiceos=ovos_skill_wikihow:WikiHowSkill
-

@@ -1,5 +1,5 @@
 import os
-from time import sleep
+import re
 
 from ovos_bus_client.session import SessionManager, Session
 from ovos_utils.log import LOG
@@ -8,9 +8,19 @@ from ovos_workshop.skills.common_query_skill import CommonQuerySkill, CQSMatchLe
 from padacioso import IntentContainer
 from padacioso.bracket_expansion import expand_parentheses
 from pywikihow import WikiHow
+from quebra_frases import sentence_tokenize
+
+
+def _normalize_text(text):
+    # Remove anything between {}, [], (), and HTML tags
+    text = re.sub(r"\{.*?\}|\[.*?\]|\(.*?\)|<.*?>", "", text)
+    # Remove URLs
+    text = re.sub(r"http\S+|www\S+", "", text)
+    return text.strip()
 
 
 class WikiHowSkill(CommonQuerySkill):
+    TIMEOUT_SECONDS_PER_SENTENCE = 30
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -24,7 +34,7 @@ class WikiHowSkill(CommonQuerySkill):
     def register_kw_xtract(self):
         """internal padacioso intents for kw extraction"""
         for lang in self.native_langs:
-            filename = f"{self.root_dir}/locale/{lang}/howto.intent"
+            filename = f"{self.root_dir}/locale/{lang.lower()}/howto.intent"
             if not os.path.isfile(filename):
                 LOG.warning(f"{filename} not found! wikihow common QA will be disabled for '{lang}'")
                 continue
@@ -45,6 +55,7 @@ class WikiHowSkill(CommonQuerySkill):
 
     def extract_keyword(self, utterance: str, lang: str):
         lang = lang.split("-")[0]
+        # TODO - closest lang / dialect support
         if lang not in self.kw_matchers:
             return None
         matcher: IntentContainer = self.kw_matchers[lang]
@@ -87,30 +98,37 @@ class WikiHowSkill(CommonQuerySkill):
 
     def speak_how_to(self, how_to, sess=None):
         sess = sess or SessionManager.get()
-        self.session_results[sess.session_id]["speaking"] = True
         title = how_to["title"]
         total = len(how_to["steps"])
         LOG.debug(f"HowTo contains {total} steps")
 
         self.set_context("WikiHow", title)
-
         for idx, s in enumerate(how_to["steps"]):
             if self.session_results[sess.session_id].get("stop_signaled"):
+                LOG.debug(f"Stopping how-to reading for session: {sess.session_id}")
                 break
 
             if s.get("picture"):
-                self.gui.show_image(caption=title, url=s["picture"])
+                self.gui.show_image(caption=title, url=s["picture"],
+                                    override_idle=True, override_animations=True)
 
             if self.settings.get("detailed", True):
                 txt = s["summary"] + "\n" + s["description"]
             else:
                 txt = s["summary"]
 
-            self.speak_dialog("step", {"number": idx + 1, "step": txt}, wait=True)
+            txt = _normalize_text(txt)
 
-            sleep(1)
+            sents = sentence_tokenize(txt)
+            self.speak_dialog("step", {"number": idx + 1, "step": sents[0]}, wait=self.TIMEOUT_SECONDS_PER_SENTENCE)
+            if len(sents) > 1:
+                for s in sents[1:]:
+                    if not self.session_results[sess.session_id].get("stop_signaled"):
+                        self.speak(s, wait=self.TIMEOUT_SECONDS_PER_SENTENCE)
 
-        self.session_results[sess.session_id]["speaking"] = False
+        LOG.debug("end of HowTo")
+        self.session_results.pop(sess.session_id)
+        self.gui.release()
 
     # intents
     @intent_handler('wikihow.intent')
@@ -139,7 +157,6 @@ class WikiHowSkill(CommonQuerySkill):
                                                  "image": None,
                                                  "lang": sess.lang,
                                                  "stop_signaled": False,
-                                                 "is_speaking": False,
                                                  "system_unit": sess.system_unit,
                                                  "spoken_answer": None}
         response = how_to["intro"]
@@ -153,9 +170,8 @@ class WikiHowSkill(CommonQuerySkill):
 
     def stop_session(self, sess: Session):
         if sess.session_id in self.session_results:
-            if self.session_results[sess.session_id]["is_speaking"]:
-                self.session_results[sess.session_id]["stop_signaled"] = True
-                return True
+            self.session_results[sess.session_id]["stop_signaled"] = True
+            return True
         return False
 
 

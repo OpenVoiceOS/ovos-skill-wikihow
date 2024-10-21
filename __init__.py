@@ -1,5 +1,6 @@
 import os
 import re
+from typing import Dict, List, Optional, Tuple
 
 from ovos_bus_client.session import SessionManager, Session
 from ovos_utils.log import LOG
@@ -11,49 +12,73 @@ from pywikihow import WikiHow
 from quebra_frases import sentence_tokenize
 
 
-def _normalize_text(text):
-    # Remove anything between {}, [], (), and HTML tags
+def _normalize_text(text: str) -> str:
+    """
+    Normalize the input text by removing content inside curly braces {}, square brackets [], parentheses (),
+    HTML tags, and URLs. Strips leading/trailing whitespace.
+
+    Args:
+        text (str): Input text to normalize.
+
+    Returns:
+        str: Normalized text.
+    """
     text = re.sub(r"\{.*?\}|\[.*?\]|\(.*?\)|<.*?>", "", text)
-    # Remove URLs
     text = re.sub(r"http\S+|www\S+", "", text)
     return text.strip()
 
 
 class WikiHowSkill(CommonQuerySkill):
-    TIMEOUT_SECONDS_PER_SENTENCE = 30
+    TIMEOUT_SECONDS_PER_SENTENCE: int = 30
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
+        """
+        Initialize the WikiHowSkill with necessary attributes and resources.
+        """
         super().__init__(*args, **kwargs)
-        self.kw_matchers = {}
-        self.session_results = {}  # session_id: {}
-        self.speaking = False  # for stop handling
-        self.stop_signaled = False
-        self.wikihow = WikiHow()
+        self.kw_matchers: Dict[str, IntentContainer] = {}
+        self.session_results: Dict[str, Dict] = {}  # session_id: {}
+        self.speaking: bool = False  # for stop handling
+        self.stop_signaled: bool = False
+        self.wikihow: WikiHow = WikiHow()
         self.register_kw_xtract()
 
-    def register_kw_xtract(self):
-        """internal padacioso intents for kw extraction"""
+    def register_kw_xtract(self) -> None:
+        """
+        Register keyword extractors for each language by loading patterns from how-to intent files.
+        Uses Padacioso to manage keyword matching.
+        """
         for lang in self.native_langs:
             filename = f"{self.root_dir}/locale/{lang.lower()}/howto.intent"
             if not os.path.isfile(filename):
                 LOG.warning(f"{filename} not found! wikihow common QA will be disabled for '{lang}'")
                 continue
-            samples = []
+            samples: List[str] = []
             with open(filename) as f:
-                for l in f.read().split("\n"):
-                    if not l.strip() or l.startswith("#"):
+                for line in f.read().split("\n"):
+                    if not line.strip() or line.startswith("#"):
                         continue
-                    if "(" in l:
-                        samples += expand_parentheses(l)
+                    if "(" in line:
+                        samples += expand_parentheses(line)
                     else:
-                        samples.append(l)
+                        samples.append(line)
 
             lang = lang.split("-")[0]
             if lang not in self.kw_matchers:
                 self.kw_matchers[lang] = IntentContainer()
             self.kw_matchers[lang].add_intent("question", samples)
 
-    def extract_keyword(self, utterance: str, lang: str):
+    def extract_keyword(self, utterance: str, lang: str) -> Optional[str]:
+        """
+        Extract the keyword from the utterance using registered keyword matchers for the given language.
+
+        Args:
+            utterance (str): The input phrase from which to extract a keyword.
+            lang (str): The language to use for keyword extraction.
+
+        Returns:
+            Optional[str]: Extracted keyword if available, otherwise None.
+        """
         lang = lang.split("-")[0]
         # TODO - closest lang / dialect support
         if lang not in self.kw_matchers:
@@ -68,7 +93,16 @@ class WikiHowSkill(CommonQuerySkill):
         return kw
 
     # wikihow internals
-    def _tx(self, data):
+    def _tx(self, data: Dict) -> Dict:
+        """
+        Translate WikiHow content (title, steps) into the target language using the skill's translator.
+
+        Args:
+            data (Dict): WikiHow content in dictionary format.
+
+        Returns:
+            Dict: Translated WikiHow content.
+        """
         translated = self.translator.translate(data["title"], self.lang)
         data["title"] = translated
 
@@ -82,7 +116,17 @@ class WikiHowSkill(CommonQuerySkill):
             data["steps"][idx]["description"] = translated
         return data
 
-    def get_how_to(self, query, num=1):
+    def get_how_to(self, query: str, num: int = 1) -> Optional[Dict]:
+        """
+        Search for a how-to guide on WikiHow and return the result.
+
+        Args:
+            query (str): The query string to search for.
+            num (int, optional): Maximum number of results to retrieve. Defaults to 1.
+
+        Returns:
+            Optional[Dict]: WikiHow content in dictionary format, or None if no result found.
+        """
         data = None
         lang = self.lang.split("-")[0]
         tx = False
@@ -96,7 +140,14 @@ class WikiHowSkill(CommonQuerySkill):
                 data = self._tx(data)
         return data
 
-    def speak_how_to(self, how_to, sess=None):
+    def speak_how_to(self, how_to: Dict, sess: Optional[Session] = None) -> None:
+        """
+        Speak the steps of a WikiHow guide.
+
+        Args:
+            how_to (Dict): The WikiHow guide in dictionary format.
+            sess (Optional[Session], optional): The session to manage during the speaking process. Defaults to None.
+        """
         sess = sess or SessionManager.get()
         title = how_to["title"]
         total = len(how_to["steps"])
@@ -132,7 +183,13 @@ class WikiHowSkill(CommonQuerySkill):
 
     # intents
     @intent_handler('wikihow.intent')
-    def handle_how_to_intent(self, message):
+    def handle_how_to_intent(self, message) -> None:
+        """
+        Handle the 'how to' intent, search for WikiHow results, and speak them.
+
+        Args:
+            message: The message object containing the user's query.
+        """
         query = message.data["query"]
         how_to = self.get_how_to(query)
         if not how_to:
@@ -142,12 +199,20 @@ class WikiHowSkill(CommonQuerySkill):
             sess = SessionManager.get(message)
             self.speak_how_to(how_to, sess)
 
-    # common query
-    def CQS_match_query_phrase(self, phrase: str):
+    def CQS_match_query_phrase(self, phrase: str) -> Optional[Tuple[str, CQSMatchLevel, str, Dict]]:
+        """
+        Match a query phrase and provide a response from WikiHow if a match is found.
+
+        Args:
+            phrase (str): The input query phrase.
+
+        Returns:
+            Optional[Tuple[str, CQSMatchLevel, str, Dict]]: The phrase, confidence level, response, and additional data if matched, otherwise None.
+        """
         kw = self.extract_keyword(phrase, self.lang)
         if not kw:  # not a "how to" question
             return None
-        self.log.debug("WikiHow query: " + phrase)
+        LOG.debug("WikiHow query: " + phrase)
         how_to = self.get_how_to(phrase)
         if not how_to:
             return None
@@ -164,11 +229,26 @@ class WikiHowSkill(CommonQuerySkill):
         return (phrase, CQSMatchLevel.EXACT, response,
                 {'query': phrase, 'answer': response, "how_to": how_to})
 
-    def CQS_action(self, phrase: str, data: dict):
-        """ If selected show gui """
+    def CQS_action(self, phrase: str, data: Dict) -> None:
+        """
+        Perform an action when the WikiHow result is selected (e.g., display the steps).
+
+        Args:
+            phrase (str): The input query phrase.
+            data (Dict): Additional data, including the how-to guide.
+        """
         self.speak_how_to(data.get("how_to"))
 
-    def stop_session(self, sess: Session):
+    def stop_session(self, sess: Session) -> bool:
+        """
+        Stop the current WikiHow session by signaling that the user has requested to stop.
+
+        Args:
+            sess (Session): The session to stop.
+
+        Returns:
+            bool: True if the session was successfully stopped, False otherwise.
+        """
         if sess.session_id in self.session_results:
             self.session_results[sess.session_id]["stop_signaled"] = True
             return True

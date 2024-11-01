@@ -1,16 +1,12 @@
 # Changelog
 
-## [0.2.4a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.4a1) (2024-10-21)
+## [0.2.5a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.5a1) (2024-11-01)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.3...0.2.4a1)
-
-**Fixed bugs:**
-
-- "stop" doesn't stop the playback when multiple audio files are queued [\#17](https://github.com/OpenVoiceOS/ovos-skill-wikihow/issues/17)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.4...0.2.5a1)
 
 **Merged pull requests:**
 
-- fix:responsiveness and lang [\#18](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+- fix:workshop 2.0.0 [\#20](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/20) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

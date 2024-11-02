@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.2.5a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.5a1) (2024-11-01)
+## [0.2.6a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.6a1) (2024-11-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.4...0.2.5a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.5...0.2.6a1)
 
 **Merged pull requests:**
 
-- fix:workshop 2.0.0 [\#20](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/20) ([JarbasAl](https://github.com/JarbasAl))
+- da-dk/translate [\#22](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/22) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 
 

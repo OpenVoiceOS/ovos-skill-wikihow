@@ -1,0 +1,13 @@
+{
+  "howto.intent": [
+    "hvordan {query}",
+    "hvordan {query} jeg",
+    "hvordan kan jeg {query}",
+    "trin for {query}",
+    "(forklar|) trin for trin {query}"
+  ],
+  "wikihow.intent": [
+    "søg (wiki how|wikihow) (for|efter|) {query}",
+    "hvad (gør|synes|mener|siger) (wiki how|wikihow)  om {query}"
+  ]
+}

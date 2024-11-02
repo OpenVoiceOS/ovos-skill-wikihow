@@ -3,8 +3,8 @@
     "Trin {number}, {step}"
   ],
   "howto.failure.dialog": [
-    null,
-    null,
-    null
+    "jeg ved det ikke",
+    "jeg er ikke sikker",
+    "Jeg prøvede at søge på wiki how, men kunne ikke finde noget"
   ]
 }

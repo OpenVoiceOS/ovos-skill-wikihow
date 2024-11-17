@@ -1,0 +1,13 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "How to do nearly everything.",
+  "examples": [
+    "how to boil an egg",
+    "how do i get my dog to stop barking"
+  ],
+  "tags": [
+    "daily", "information"
+  ]
+}

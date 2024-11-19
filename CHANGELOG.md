@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.2.7a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.7a1) (2024-11-17)
+## [0.2.8a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.8a1) (2024-11-19)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.6...0.2.7a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.7...0.2.8a1)
 
 **Merged pull requests:**
 
-- fix: skilljson [\#25](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/25) ([JarbasAl](https://github.com/JarbasAl))
+- fix:allow workshop 3.0.0 [\#27](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/27) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

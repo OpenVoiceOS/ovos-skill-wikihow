@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Com fer gairebé qualsevolcosa",
+  "examples": [
+    "com bullir un ou",
+    "Com puc aconseguir que el meu gos deixi de bordar?"
+  ],
+  "tags": [
+    "dia a dia",
+    "informació"
+  ]
+}

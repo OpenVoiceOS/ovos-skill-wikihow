@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Sådan gør du næsten alt.",
+  "examples": [
+    "hvordan koger man et æg",
+    "hvordan får jeg min hund til at stoppe med at gø"
+  ],
+  "tags": [
+    "daglig",
+    "information"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Wie man fast alles macht.",
+  "examples": [
+    "Wie man ein Ei kocht",
+    "wie bringe ich meinen Hund dazu, mit dem Bellen aufzuhören"
+  ],
+  "tags": [
+    "täglich",
+    "Information\nInformationen"
+  ]
+}

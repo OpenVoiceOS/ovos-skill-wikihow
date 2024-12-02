@@ -1,0 +1,10 @@
+{
+    "step.dialog": [
+        "{number}. urratsa. {step}"
+    ],
+    "howto.failure.dialog": [
+        "Ez nago ziur",
+        "Ez dakit",
+        "Saiatu naiz wiki how bilatzen, baina ez dut ezer aurkitu"
+    ]
+}

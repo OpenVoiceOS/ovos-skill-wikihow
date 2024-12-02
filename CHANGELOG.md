@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.2.11a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.11a1) (2024-11-30)
+## [0.2.12a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.12a1) (2024-12-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.10...0.2.11a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.11...0.2.12a1)
 
 **Merged pull requests:**
 
-- de-de/translate [\#33](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/33) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- import galician translations [\#35](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/35) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

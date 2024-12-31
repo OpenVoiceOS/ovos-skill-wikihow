@@ -4,8 +4,8 @@ from typing import Dict, List, Optional, Tuple
 
 from ovos_bus_client.session import SessionManager, Session
 from ovos_utils.log import LOG
-from ovos_workshop.decorators import intent_handler
-from ovos_workshop.skills.common_query_skill import CommonQuerySkill, CQSMatchLevel
+from ovos_workshop.decorators import intent_handler, common_query
+from ovos_workshop.skills.ovos import OVOSSkill
 from padacioso import IntentContainer
 from padacioso.bracket_expansion import expand_parentheses
 from pywikihow import WikiHow
@@ -28,7 +28,7 @@ def _normalize_text(text: str) -> str:
     return text.strip()
 
 
-class WikiHowSkill(CommonQuerySkill):
+class WikiHowSkill(OVOSSkill):
     TIMEOUT_SECONDS_PER_SENTENCE: int = 30
 
     def __init__(self, *args, **kwargs) -> None:
@@ -199,7 +199,14 @@ class WikiHowSkill(CommonQuerySkill):
             sess = SessionManager.get(message)
             self.speak_how_to(how_to, sess)
 
-    def CQS_match_query_phrase(self, phrase: str) -> Optional[Tuple[str, CQSMatchLevel, str, Dict]]:
+    def cq_callback(self, utterance: str, answer: str, lang: str):
+        """ If selected show gui """
+        sess = SessionManager.get()
+        how_to = self.session_results[sess.session_id]["how_to"]
+        self.speak_how_to(how_to)
+
+    @common_query(callback=cq_callback)
+    def match_common_query(self, phrase: str, lang: str) -> Tuple[str, float]:
         """
         Match a query phrase and provide a response from WikiHow if a match is found.
 
@@ -209,7 +216,7 @@ class WikiHowSkill(CommonQuerySkill):
         Returns:
             Optional[Tuple[str, CQSMatchLevel, str, Dict]]: The phrase, confidence level, response, and additional data if matched, otherwise None.
         """
-        kw = self.extract_keyword(phrase, self.lang)
+        kw = self.extract_keyword(phrase, lang)
         if not kw:  # not a "how to" question
             return None
         LOG.debug("WikiHow query: " + phrase)
@@ -220,24 +227,13 @@ class WikiHowSkill(CommonQuerySkill):
         sess = SessionManager.get()
         self.session_results[sess.session_id] = {"phrase": phrase,
                                                  "image": None,
-                                                 "lang": sess.lang,
+                                                 "lang": lang,
                                                  "stop_signaled": False,
                                                  "system_unit": sess.system_unit,
                                                  "spoken_answer": None}
         response = how_to["intro"]
         self.session_results[sess.session_id]["how_to"] = how_to
-        return (phrase, CQSMatchLevel.EXACT, response,
-                {'query': phrase, 'answer': response, "how_to": how_to})
-
-    def CQS_action(self, phrase: str, data: Dict) -> None:
-        """
-        Perform an action when the WikiHow result is selected (e.g., display the steps).
-
-        Args:
-            phrase (str): The input query phrase.
-            data (Dict): Additional data, including the how-to guide.
-        """
-        self.speak_how_to(data.get("how_to"))
+        return response, 0.7
 
     def stop_session(self, sess: Session) -> bool:
         """

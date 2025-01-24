@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.2.14a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.14a1) (2025-01-04)
+## [0.2.15a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.15a1) (2025-01-24)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.13...0.2.14a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.14...0.2.15a1)
 
 **Merged pull requests:**
 
-- refactor: new common query decorators [\#39](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/39) ([JarbasAl](https://github.com/JarbasAl))
+- fix: basque syntax error [\#41](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/41) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

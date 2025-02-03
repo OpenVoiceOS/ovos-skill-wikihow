@@ -261,7 +261,7 @@ class WikiHowSolver(QuestionSolver):
                  detector: Optional[LanguageDetector] = None):
         super().__init__(config, enable_tx=False, priority=60,
                          translator=translator, detector=detector)
-        self.verbose = self.config.get("verbose", False)
+        self.verbose = self.config.get("verbose", True)
 
     def get_data(self, query: str,
                  lang: Optional[str] = "en",

@@ -19,6 +19,8 @@ PYPI_NAME = URL.split("/")[-1]  # pip install PYPI_NAME
 SKILL_ID = f"{PYPI_NAME.lower()}.{AUTHOR.lower()}"
 SKILL_PKG = PYPI_NAME.lower().replace('-', '_')
 PLUGIN_ENTRY_POINT = f"{SKILL_ID}={SKILL_PKG}:{SKILL_CLAZZ}"
+SOLVER_ENTRY_POINT = f'ovos-solver-wikihow-plugin={SKILL_PKG}:WikiHowSolver'
+PERSONA_ENTRY_POINT = f'WikiHow={SKILL_PKG}:WIKIHOW_PERSONA'
 
 
 # Function to parse requirements from file
@@ -87,5 +89,9 @@ setup(
     include_package_data=True,
     install_requires=get_requirements(),
     keywords='ovos skill plugin',
-    entry_points={'ovos.plugin.skill': PLUGIN_ENTRY_POINT}
+    entry_points={
+        'ovos.plugin.skill': PLUGIN_ENTRY_POINT,
+        'neon.plugin.solver': SOLVER_ENTRY_POINT,
+        "opm.plugin.persona": PERSONA_ENTRY_POINT
+    }
 )

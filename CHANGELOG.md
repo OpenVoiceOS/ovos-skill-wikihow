@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.2.15a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.15a1) (2025-01-24)
+## [0.3.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.0a1) (2025-02-03)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.14...0.2.15a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.15...0.3.0a1)
 
 **Merged pull requests:**
 
-- fix: basque syntax error [\#41](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/41) ([JarbasAl](https://github.com/JarbasAl))
+- feat: wikihow persona [\#43](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/43) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

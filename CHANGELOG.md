@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.3.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.0a1) (2025-02-03)
+## [0.3.1a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.1a1) (2025-02-25)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.15...0.3.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.0...0.3.1a1)
 
 **Merged pull requests:**
 
-- feat: wikihow persona [\#43](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/43) ([JarbasAl](https://github.com/JarbasAl))
+- gl/translate [\#45](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/45) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 
 

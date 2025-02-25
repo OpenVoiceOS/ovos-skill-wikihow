@@ -1,10 +1,10 @@
 {
-    "step.dialog": [
-        "Paso {number}. {step}"
-    ],
-    "howto.failure.dialog": [
-        "non che sei moi ben",
-        "non sei",
-        "Tentei procurar no wiki how mais non atopei nada"
-    ]
+  "step.dialog": [
+    "Paso {number}, {step}"
+  ],
+  "howto.failure.dialog": [
+    "non sei",
+    "non che sei moi ben",
+    "Tentei procurar no wiki how mais non atopei nada"
+  ]
 }

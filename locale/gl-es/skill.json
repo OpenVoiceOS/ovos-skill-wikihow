@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Como facer case calquera cousa.",
+  "examples": [
+    "como ferver un ovo",
+    "como consigo que o meu can deixe de ladrar"
+  ],
+  "tags": [
+    "(cotián|cotiá)",
+    "información"
+  ]
+}

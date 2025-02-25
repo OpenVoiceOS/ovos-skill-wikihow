@@ -1,13 +1,13 @@
 {
-    "howto.intent": [
-        "(explica|) paso a paso {query}",
-        "como podo {query}",
-        "como fago {query}",
-        "como {query}",
-        "pasos para {query}"
-    ],
-    "wikihow.intent": [
-        "procurar en (wiki how|wikihow) {query}",
-        "que (di|pensa) (wiki how|wikihow) sobre {query}"
-    ]
+  "howto.intent": [
+    "como {query}",
+    "como fago {query}",
+    "como podo {query} ",
+    "pasos para {query} ",
+    "(explica|) paso a paso {query} "
+  ],
+  "wikihow.intent": [
+    "procurar en (wiki how|wikihow) {query}",
+    "que (di|pensa) (wiki how|wikihow) sobre {query}"
+  ]
 }

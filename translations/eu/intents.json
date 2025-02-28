@@ -1,13 +1,13 @@
 {
     "howto.intent": [
         "(azaldu|) urratsez urrats {query}",
-        "nola egin dezaket {query}?",
-        "nola egingo dut {query}?",
+        "nola egin dezaket {query}",
         "nola egin {query}",
+        "nola egingo dut {query}",
         "{query} egiteko urratsak"
     ],
     "wikihow.intent": [
-        "bilatu (wiki how|wikihow) (honetarako:|) {query}",
-        "zer (dio|pentsatzen du) (wiki how-k|wikihow-k) honi buruz {query}?"
+        "bilatu (wiki how|wikihow) (honetarako|) {query}",
+        "zer (dio|pentsatzen du) (wiki how-k|wikihow-k) honi buruz {query}"
     ]
 }

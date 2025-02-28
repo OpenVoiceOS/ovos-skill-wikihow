@@ -1,13 +1,13 @@
 {
-  "howto.intent": [
-    "wie macht man {query}",
-    "wie mache ich {query}",
-    "wie kann ich {query}",
-    "Schritte für {query}",
-    "(erkläre|) Schritt für Schritt {query}"
-  ],
-  "wikihow.intent": [
-    "Suche in (wiki how|wikihow) (nach|) {query}",
-    "was sagt (wiki how|wikihow) über {query}"
-  ]
+    "howto.intent": [
+        "(erkläre|) Schritt für Schritt {query}",
+        "Schritte für {query}",
+        "wie kann ich {query}",
+        "wie mache ich {query}",
+        "wie macht man {query}"
+    ],
+    "wikihow.intent": [
+        "Suche in (wiki how|wikihow) (nach|) {query}",
+        "was sagt (wiki how|wikihow) über {query}"
+    ]
 }

@@ -1,10 +1,10 @@
 {
     "howto.intent": [
-        "how to {query}",
-        "how do i {query}",
+        "(explain|) step by step {query}",
         "how can i {query}",
-        "steps for {query}",
-        "(explain|) step by step {query}"
+        "how do i {query}",
+        "how to {query}",
+        "steps for {query}"
     ],
     "wikihow.intent": [
         "search (wiki how|wikihow) (for|) {query}",

@@ -1,13 +1,13 @@
 {
-  "howto.intent": [
-    "como (é que|) {query}",
-    "como (é que|)  faço para {query}",
-    "como (é que|) posso {query}",
-    "(explica as|explicar) (etapas para|como|como é que) {query}",
-    "(explicar|) passo a passo (como é que|) {query}"
-  ],
-  "wikihow.intent": [
-    "pesquisar (wiki how|wikihow) (como é que|) {query}",
-    "o que (wiki how|wikihow) (diz | pensa) sobre {query}"
-  ]
+    "howto.intent": [
+        "(explica as|explicar) (etapas para|como|como é que) {query}",
+        "(explicar|) passo a passo (como é que|) {query}",
+        "como (é que|) faço para {query}",
+        "como (é que|) posso {query}",
+        "como (é que|) {query}"
+    ],
+    "wikihow.intent": [
+        "o que (wiki how|wikihow) (diz | pensa) sobre {query}",
+        "pesquisar (wiki how|wikihow) (como é que|) {query}"
+    ]
 }

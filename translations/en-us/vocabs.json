@@ -3,9 +3,15 @@
     "weather",
     "meteorology"
   ],
-  "Help.voc": [
+  "MiscBlacklist.voc": [
     "install",
     "skills",
-    "can you"
+    "how",
+    "how long",
+    "what time",
+    "is it",
+    "can you",
+    "you do",
+    "explain"
   ]
 }

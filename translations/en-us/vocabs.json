@@ -1,0 +1,11 @@
+{
+  "Weather.voc": [
+    "weather",
+    "meteorology"
+  ],
+  "Help.voc": [
+    "install",
+    "skills",
+    "can you"
+  ]
+}

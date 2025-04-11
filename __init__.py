@@ -185,7 +185,8 @@ class WikiHowSkill(OVOSSkill):
         self.gui.release()
 
     # intents
-    @intent_handler('wikihow.intent')
+    @intent_handler('wikihow.intent',
+                    voc_blacklist=["Weather", "Help"])
     def handle_how_to_intent(self, message) -> None:
         """
         Handle the 'how to' intent, search for WikiHow results, and speak them.
@@ -219,6 +220,10 @@ class WikiHowSkill(OVOSSkill):
         Returns:
             Optional[Tuple[str, CQSMatchLevel, str, Dict]]: The phrase, confidence level, response, and additional data if matched, otherwise None.
         """
+
+        if self.voc_match(phrase, "Help") or self.voc_match(phrase, "Weather"):
+            return None
+
         kw = self.extract_keyword(phrase, lang)
         if not kw:  # not a "how to" question
             return None

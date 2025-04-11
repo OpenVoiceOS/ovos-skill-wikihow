@@ -221,7 +221,7 @@ class WikiHowSkill(OVOSSkill):
             Optional[Tuple[str, CQSMatchLevel, str, Dict]]: The phrase, confidence level, response, and additional data if matched, otherwise None.
         """
 
-        if self.voc_match(phrase, "Help") or self.voc_match(phrase, "Weather"):
+        if self.voc_match(phrase, "MiscBlacklist") or self.voc_match(phrase, "Weather"):
             return None
 
         kw = self.extract_keyword(phrase, lang)

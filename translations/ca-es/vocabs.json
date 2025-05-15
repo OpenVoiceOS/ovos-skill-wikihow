@@ -1,0 +1,17 @@
+{
+  "Weather.voc": [
+    "(temps|oratge)",
+    "meteorologia"
+  ],
+  "MiscBlacklist.voc": [
+    "instal·la",
+    "habilitats",
+    "com",
+    "quant de temps",
+    "quina hora",
+    "és",
+    "pots",
+    "fés",
+    "explica"
+  ]
+}

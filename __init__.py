@@ -162,7 +162,7 @@ class WikiHowSkill(OVOSSkill):
                 LOG.debug(f"Stopping how-to reading for session: {sess.session_id}")
                 break
 
-            if s.get("picture"):
+            if sess.session_id == "default" and s.get("picture"):
                 self.gui.show_image(caption=title, url=s["picture"],
                                     override_idle=True, override_animations=True)
 
@@ -182,7 +182,8 @@ class WikiHowSkill(OVOSSkill):
 
         LOG.debug("end of HowTo")
         self.session_results.pop(sess.session_id)
-        self.gui.release()
+        if sess.session_id == "default":
+            self.gui.release()
 
     # intents
     @intent_handler('wikihow.intent',
@@ -243,18 +244,24 @@ class WikiHowSkill(OVOSSkill):
         self.session_results[sess.session_id]["how_to"] = how_to
         return response, 0.7
 
-    def stop_session(self, sess: Session) -> bool:
+    def can_stop(self, message: Message) -> bool:
+        sess = SessionManager.get(message)
+        return sess.session_id in self.session_results
+
+    def stop_session(self, session: Session) -> bool:
         """
         Stop the current WikiHow session by signaling that the user has requested to stop.
 
         Args:
-            sess (Session): The session to stop.
+            session (Session): The session to stop.
 
         Returns:
             bool: True if the session was successfully stopped, False otherwise.
         """
-        if sess.session_id in self.session_results:
-            self.session_results[sess.session_id]["stop_signaled"] = True
+        if session.session_id in self.session_results:
+            self.session_results[session.session_id]["stop_signaled"] = True
+            if session.session_id == "default":
+                self.gui.release()
             return True
         return False
 

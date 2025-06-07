@@ -4,6 +4,7 @@ from typing import Dict, List, Optional, Tuple, Any
 from ovos_plugin_manager.templates.language import LanguageTranslator, LanguageDetector
 
 from ovos_bus_client.session import SessionManager, Session
+from ovos_bus_client.message import Message
 from ovos_plugin_manager.templates.solvers import QuestionSolver
 from ovos_utils.log import LOG
 from ovos_workshop.decorators import intent_handler, common_query

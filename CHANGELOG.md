@@ -1,20 +1,20 @@
 # Changelog
 
-## [0.3.2a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.2a2) (2025-04-11)
+## [0.3.3a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.3a1) (2025-06-07)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.2a1...0.3.2a2)
-
-**Merged pull requests:**
-
-- Blacklist2 [\#49](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/49) ([JarbasAl](https://github.com/JarbasAl))
-
-## [0.3.2a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.2a1) (2025-04-11)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.1...0.3.2a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.3a1...0.3.3a1)
 
 **Merged pull requests:**
 
-- fix: extend keyword blacklist [\#47](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/47) ([JarbasAl](https://github.com/JarbasAl))
+- fix: workshop 6.0.0 compat [\#52](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/52) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.3a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.3a1) (2025-05-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.2...0.3.3a1)
+
+**Merged pull requests:**
+
+- Update Catalan strings [\#51](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/51) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 
 

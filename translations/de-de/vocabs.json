@@ -1,0 +1,17 @@
+{
+  "Weather.voc": [
+    "Wetter",
+    "Meteorologie"
+  ],
+  "MiscBlacklist.voc": [
+    "installieren\ninstalliere",
+    "Fähigkeiten\nSkills",
+    "Wie",
+    "Wie lange",
+    "wie viel Uhr",
+    "ist es",
+    "kannst du",
+    "du tust",
+    "erklären\nerkläre"
+  ]
+}

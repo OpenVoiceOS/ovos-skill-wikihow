@@ -1,20 +1,21 @@
 # Changelog
 
-## [0.3.3a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.3a2) (2025-06-08)
+## [0.3.4a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a1) (2025-12-20)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.3a1...0.3.3a2)
-
-**Merged pull requests:**
-
-- fix: workshop 6.0.0 compat [\#52](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/52) ([JarbasAl](https://github.com/JarbasAl))
-
-## [0.3.3a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.3a1) (2025-05-15)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.2...0.3.3a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a1...0.3.4a1)
 
 **Merged pull requests:**
 
-- Update Catalan strings [\#51](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/51) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- chore: Configure Renovate [\#56](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/56) ([renovate[bot]](https://github.com/apps/renovate))
+- es-es/translate [\#55](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/55) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+
+## [0.3.4a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a1) (2025-07-12)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.3...0.3.4a1)
+
+**Merged pull requests:**
+
+- adding German translations [\#54](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/54) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 
 

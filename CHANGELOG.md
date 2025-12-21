@@ -1,11 +1,12 @@
 # Changelog
 
-## [0.3.4a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a1) (2025-12-20)
+## [0.3.4a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a2) (2025-12-21)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a1...0.3.4a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a1...0.3.4a2)
 
 **Merged pull requests:**
 
+- chore\(deps\): update dependency ovos\_workshop to v8 [\#61](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/61) ([renovate[bot]](https://github.com/apps/renovate))
 - chore: Configure Renovate [\#56](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/56) ([renovate[bot]](https://github.com/apps/renovate))
 - es-es/translate [\#55](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/55) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 

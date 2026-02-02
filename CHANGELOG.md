@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.4a4](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a4) (2026-02-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a3...0.3.4a4)
+
+**Merged pull requests:**
+
+- chore\(deps\): update actions/setup-python action to v6 [\#60](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/60) ([renovate[bot]](https://github.com/apps/renovate))
+- chore\(deps\): update actions/checkout action to v6 [\#58](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/58) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.3.4a3](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a3) (2026-01-19)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a2...0.3.4a3)

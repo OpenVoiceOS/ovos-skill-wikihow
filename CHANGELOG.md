@@ -1,8 +1,8 @@
 # Changelog
 
-## [0.3.4a4](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a4) (2026-02-02)
+## [0.3.4a5](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a5) (2026-02-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a3...0.3.4a4)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a3...0.3.4a5)
 
 **Merged pull requests:**
 

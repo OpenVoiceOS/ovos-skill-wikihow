@@ -2,10 +2,10 @@
   "skill_id": "ovos-skill-wikihow.openvoiceos",
   "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
   "name": "WikiHow",
-  "description": "Comment faire presque n'importe quoi.",
+  "description": "Des explications étape par étape pour les questions pratiques du quotidien.",
   "examples": [
-    "Comment faire cuire un oeuf",
-    "Comment faire pour que mon chien arrête d'aboyer"
+    "Comment faire cuire un oeuf dur ?",
+    "Comment faire pour que mon chien arrête d'aboyer ?"
   ],
   "tags": [
     "quotidien",

@@ -1,8 +1,21 @@
 # Changelog
 
+## [0.3.5a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.5a1) (2026-03-24)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a5...0.3.5a1)
+
+**Merged pull requests:**
+
+- fix: rename bare lang code locale directories [\#68](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/68) ([ovos-localize[bot]](https://github.com/apps/ovos-localize))
+- Add French WikiHow locale [\#67](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/67) ([goldyfruit](https://github.com/goldyfruit))
+
 ## [0.3.4a5](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a5) (2026-02-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a3...0.3.4a5)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a4...0.3.4a5)
+
+## [0.3.4a4](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a4) (2026-02-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a3...0.3.4a4)
 
 **Merged pull requests:**
 

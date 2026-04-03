@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.6a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.6a1) (2026-04-03)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.5a1...0.3.6a1)
+
+**Merged pull requests:**
+
+- fix\(i18n\): normalize locale folders to canonical BCP-47 [\#70](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/70) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.5a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.5a1) (2026-03-24)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a5...0.3.5a1)

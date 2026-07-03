@@ -44,6 +44,9 @@ class WikiHowSkill(OVOSSkill):
         # per-language set of phrases that MUST NOT fill the {query} slot,
         # loaded from locale/<lang>/query.blacklist (OVOS-INTENT-2 §4.3)
         self.query_blacklists: Dict[str, set] = {}
+        # per-language set of phrases that suppress wikihow.intent, loaded from
+        # locale/<lang>/wikihow.blacklist (OVOS-INTENT-2 §4.3 intent suppression)
+        self.intent_blacklists: Dict[str, set] = {}
         self.session_results: Dict[str, Dict] = {}  # session_id: {}
         self.speaking: bool = False  # for stop handling
         self.stop_signaled: bool = False
@@ -75,6 +78,7 @@ class WikiHowSkill(OVOSSkill):
                 self.kw_matchers[lang] = IntentContainer()
             self.kw_matchers[lang].add_intent("question", samples)
         self.load_query_blacklists()
+        self.load_intent_blacklists()
 
     def load_query_blacklists(self) -> None:
         """
@@ -109,6 +113,46 @@ class WikiHowSkill(OVOSSkill):
         if not query:
             return False
         return query.strip().lower() in self.query_blacklists.get(lang.split("-")[0], set())
+
+    def load_intent_blacklists(self) -> None:
+        """
+        Load the intent-suppression phrases for wikihow.intent from each
+        language's wikihow.blacklist resource (OVOS-INTENT-2 §4.3). An utterance
+        carrying any of these phrases belongs to another skill's domain (e.g. the
+        weather) and must not trigger a WikiHow lookup. A ``<voc>`` line is
+        resolved against the matching vocabulary file so the blacklist can reuse
+        an existing vocabulary by base name.
+        """
+        for lang in self.native_langs:
+            filename = f"{self.root_dir}/locale/{lang}/wikihow.blacklist"
+            if not os.path.isfile(filename):
+                continue
+            phrases: set = set()
+            with open(filename) as f:
+                for line in f.read().split("\n"):
+                    line = line.strip()
+                    if not line or line.startswith("#"):
+                        continue
+                    voc = re.match(r"^<(.+)>$", line)
+                    if voc:
+                        phrases.update(p.lower() for p in self.voc_list(voc.group(1), lang=lang))
+                    elif "(" in line:
+                        phrases.update(p.lower() for p in expand_parentheses(line))
+                    else:
+                        phrases.add(line.lower())
+            self.intent_blacklists[lang.split("-")[0]] = phrases
+
+    def is_intent_blacklisted(self, utterance: str, lang: str) -> bool:
+        """
+        Return True when the utterance carries a phrase that suppresses
+        wikihow.intent (OVOS-INTENT-2 §4.3 intent suppression), so the request
+        is left to the skill that owns that domain.
+        """
+        if not utterance:
+            return False
+        utterance = utterance.lower()
+        return any(term in utterance
+                   for term in self.intent_blacklists.get(lang.split("-")[0], set()))
 
     def extract_keyword(self, utterance: str, lang: str) -> Optional[str]:
         """
@@ -229,8 +273,7 @@ class WikiHowSkill(OVOSSkill):
             self.gui.release()
 
     # intents
-    @intent_handler('wikihow.intent',
-                    voc_blacklist=["Weather", "Help"])
+    @intent_handler('wikihow.intent')
     def handle_how_to_intent(self, message) -> None:
         """
         Handle the 'how to' intent, search for WikiHow results, and speak them.
@@ -238,6 +281,10 @@ class WikiHowSkill(OVOSSkill):
         Args:
             message: The message object containing the user's query.
         """
+        if self.is_intent_blacklisted(message.data.get("utterance", ""), self.lang):
+            # intent suppression: the utterance belongs to another skill's
+            # domain (e.g. the weather), so decline the WikiHow lookup (§4.3)
+            return
         query = message.data["query"]
         if self.is_blacklisted_query(query, self.lang):
             # "what does wikihow say about it" -> no searchable subject (§4.3)
@@ -270,7 +317,7 @@ class WikiHowSkill(OVOSSkill):
             Optional[Tuple[str, CQSMatchLevel, str, Dict]]: The phrase, confidence level, response, and additional data if matched, otherwise None.
         """
 
-        if self.voc_match(phrase, "MiscBlacklist") or self.voc_match(phrase, "Weather"):
+        if self.voc_match(phrase, "misc_blacklist") or self.voc_match(phrase, "weather"):
             return None
 
         kw = self.extract_keyword(phrase, lang)

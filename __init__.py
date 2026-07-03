@@ -56,7 +56,7 @@ class WikiHowSkill(OVOSSkill):
         Uses Padacioso to manage keyword matching.
         """
         for lang in self.native_langs:
-            filename = f"{self.root_dir}/locale/{lang.lower()}/howto.intent"
+            filename = f"{self.root_dir}/locale/{lang}/howto.intent"
             if not os.path.isfile(filename):
                 LOG.warning(f"{filename} not found! wikihow common QA will be disabled for '{lang}'")
                 continue
@@ -85,7 +85,7 @@ class WikiHowSkill(OVOSSkill):
         searching WikiHow for the pronoun itself.
         """
         for lang in self.native_langs:
-            filename = f"{self.root_dir}/locale/{lang.lower()}/query.blacklist"
+            filename = f"{self.root_dir}/locale/{lang}/query.blacklist"
             if not os.path.isfile(filename):
                 continue
             phrases: set = set()

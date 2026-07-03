@@ -12,7 +12,7 @@ jobs:
     with:
       python_version: '3.11'
       coverage_source: 'ovos_skill_wikihow'
-      test_path: 'test/'
+      test_path: 'test/unittests'
       test_extras: 'test'
       system_deps: 'swig libfann-dev'
       min_coverage: 0

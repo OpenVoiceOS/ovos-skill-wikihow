@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovos-skill-wikihow"
+dynamic = ["version"]
+description = "search wikihow by voice"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+    { name = "OpenVoiceOS", email = "jarbasai@mailfence.com" },
+]
+keywords = ["ovos", "skill", "plugin"]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "pywikihow>=0.5.7",
+    "ovos-workshop>=8.0.0,<10.0.0",
+    "quebra-frases",
+]
+
+[project.optional-dependencies]
+test = [
+    "ovoscope>=1.5.0,<2.0.0",
+    "pytest>=7.0.0,<9",
+    "pytest-timeout>=2.0.0",
+    "ovos-spec-tools>=1.4.0a1,<2.0.0",
+    "ovos-padatious>=1.8.0a1,<2.0.0",
+    "ovos-core>=2.2.4a1,<2.3.0",
+    "ovos-workshop>=8.3.0a1,<10.0.0",
+    "ovos-adapt-parser>=1.6.0a1,<2.0.0",
+    "ovos-bus-client>=2.2.0a1,<3.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/OpenVoiceOS/ovos-skill-wikihow"
+
+[project.entry-points."ovos.plugin.skill"]
+"ovos-skill-wikihow.openvoiceos" = "ovos_skill_wikihow:WikiHowSkill"
+
+[project.entry-points."neon.plugin.solver"]
+"ovos-solver-wikihow-plugin" = "ovos_skill_wikihow:WikiHowSolver"
+
+[project.entry-points."opm.plugin.persona"]
+"WikiHow" = "ovos_skill_wikihow:WIKIHOW_PERSONA"
+
+[tool.setuptools]
+packages = ["ovos_skill_wikihow"]
+
+[tool.setuptools.package-dir]
+ovos_skill_wikihow = ""
+
+[tool.setuptools.dynamic]
+version = { attr = "ovos_skill_wikihow.version.__version__" }
+
+[tool.setuptools.package-data]
+ovos_skill_wikihow = [
+    "*.json",
+    "locale/**/*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+
+[tool.coverage.run]
+source = ["ovos_skill_wikihow"]

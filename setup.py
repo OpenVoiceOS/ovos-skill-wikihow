@@ -93,7 +93,7 @@ setup(
             'pytest',
             'pytest-timeout',
             'ovoscope>=1.0.1a1',
-            'ovos-workshop>=8.3.0a1,<9.0.0',
+            'ovos-workshop>=8.3.0a1,<10.0.0',
             'ovos-adapt-parser>=1.6.0a1,<2.0.0',
             'ovos-padatious>=1.1.0a1,<2.0.0',
         ]

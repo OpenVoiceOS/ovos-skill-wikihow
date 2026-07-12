@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.6a5](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.6a5) (2026-07-12)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.6a4...0.3.6a5)
+
+**Merged pull requests:**
+
+- fix: allow ovos-workshop 9.x [\#79](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/79) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.6a4](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.6a4) (2026-07-03)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.6a3...0.3.6a4)

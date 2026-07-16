@@ -10,7 +10,11 @@ from ovos_utils.log import LOG
 from ovos_workshop.decorators import intent_handler, common_query
 from ovos_workshop.skills.ovos import OVOSSkill
 from padacioso import IntentContainer
-from padacioso.bracket_expansion import expand_parentheses
+
+try:  # padacioso >= 2.0
+    from padacioso import expand as expand_parentheses
+except ImportError:  # padacioso < 2.0
+    from padacioso.bracket_expansion import expand_parentheses
 from pywikihow import WikiHow
 from quebra_frases import sentence_tokenize
 

@@ -45,12 +45,6 @@ class WikiHowSkill(OVOSSkill):
         """
         super().__init__(*args, **kwargs)
         self.kw_matchers: Dict[str, IntentContainer] = {}
-        # per-language set of phrases that MUST NOT fill the {query} slot,
-        # loaded from locale/<lang>/query.blacklist (OVOS-INTENT-2 §4.3)
-        self.query_blacklists: Dict[str, set] = {}
-        # per-language set of phrases that suppress wikihow.intent, loaded from
-        # locale/<lang>/wikihow.blacklist (OVOS-INTENT-2 §4.3 intent suppression)
-        self.intent_blacklists: Dict[str, set] = {}
         self.session_results: Dict[str, Dict] = {}  # session_id: {}
         self.speaking: bool = False  # for stop handling
         self.stop_signaled: bool = False
@@ -81,82 +75,6 @@ class WikiHowSkill(OVOSSkill):
             if lang not in self.kw_matchers:
                 self.kw_matchers[lang] = IntentContainer()
             self.kw_matchers[lang].add_intent("question", samples)
-        self.load_query_blacklists()
-        self.load_intent_blacklists()
-
-    def load_query_blacklists(self) -> None:
-        """
-        Load the anaphoric-pronoun exclusion set for the {query} slot from each
-        language's query.blacklist resource (OVOS-INTENT-2 §4.3). A bare pronoun
-        carries no searchable subject, so when it is the entire slot value the
-        slot is left unresolved for a later context-fill stage instead of
-        searching WikiHow for the pronoun itself.
-        """
-        for lang in self.native_langs:
-            filename = f"{self.root_dir}/locale/{lang}/query.blacklist"
-            if not os.path.isfile(filename):
-                continue
-            phrases: set = set()
-            with open(filename) as f:
-                for line in f.read().split("\n"):
-                    line = line.strip()
-                    if not line or line.startswith("#"):
-                        continue
-                    if "(" in line:
-                        phrases.update(p.lower() for p in expand_parentheses(line))
-                    else:
-                        phrases.add(line.lower())
-            self.query_blacklists[lang.split("-")[0]] = phrases
-
-    def is_blacklisted_query(self, query: str, lang: str) -> bool:
-        """
-        Return True when the whole extracted {query} value is an excluded
-        anaphoric pronoun for this language (OVOS-INTENT-2 §4.3 slot-value
-        exclusion), e.g. "what does wikihow say about it" -> query "it".
-        """
-        if not query:
-            return False
-        return query.strip().lower() in self.query_blacklists.get(lang.split("-")[0], set())
-
-    def load_intent_blacklists(self) -> None:
-        """
-        Load the intent-suppression phrases for wikihow.intent from each
-        language's wikihow.blacklist resource (OVOS-INTENT-2 §4.3). An utterance
-        carrying any of these phrases belongs to another skill's domain (e.g. the
-        weather) and must not trigger a WikiHow lookup. A ``<voc>`` line is
-        resolved against the matching vocabulary file so the blacklist can reuse
-        an existing vocabulary by base name.
-        """
-        for lang in self.native_langs:
-            filename = f"{self.root_dir}/locale/{lang}/wikihow.blacklist"
-            if not os.path.isfile(filename):
-                continue
-            phrases: set = set()
-            with open(filename) as f:
-                for line in f.read().split("\n"):
-                    line = line.strip()
-                    if not line or line.startswith("#"):
-                        continue
-                    voc = re.match(r"^<(.+)>$", line)
-                    if voc:
-                        phrases.update(p.lower() for p in self.voc_list(voc.group(1), lang=lang))
-                    elif "(" in line:
-                        phrases.update(p.lower() for p in expand_parentheses(line))
-                    else:
-                        phrases.add(line.lower())
-            self.intent_blacklists[lang.split("-")[0]] = phrases
-
-    def is_intent_blacklisted(self, utterance: str, lang: str) -> bool:
-        """
-        Return True when the utterance carries a phrase that suppresses
-        wikihow.intent (OVOS-INTENT-2 §4.3 intent suppression), so the request
-        is left to the skill that owns that domain.
-        """
-        if not utterance:
-            return False
-        utterance = utterance.lower()
-        return any(term in utterance
-                   for term in self.intent_blacklists.get(lang.split("-")[0], set()))
 
     def extract_keyword(self, utterance: str, lang: str) -> Optional[str]:
         """
@@ -176,10 +94,6 @@ class WikiHowSkill(OVOSSkill):
         matcher: IntentContainer = self.kw_matchers[lang]
         match = matcher.calc_intent(utterance)
         kw = match.get("entities", {}).get("query")
-        if self.is_blacklisted_query(kw, lang):
-            # bare anaphoric pronoun: leave the slot unresolved (OVOS-INTENT-2 §4.3)
-            LOG.debug(f"Ignoring anaphoric WikiHow query '{kw}' for '{lang}'")
-            return None
         if kw:
             LOG.debug(f"WikiHow Keyword: {kw} - Confidence: {match['conf']}")
         else:
@@ -285,16 +199,7 @@ class WikiHowSkill(OVOSSkill):
         Args:
             message: The message object containing the user's query.
         """
-        if self.is_intent_blacklisted(message.data.get("utterance", ""), self.lang):
-            # intent suppression: the utterance belongs to another skill's
-            # domain (e.g. the weather), so decline the WikiHow lookup (§4.3)
-            return
         query = message.data["query"]
-        if self.is_blacklisted_query(query, self.lang):
-            # "what does wikihow say about it" -> no searchable subject (§4.3)
-            self.speak_dialog("howto.failure")
-            self.remove_context("WikiHow")
-            return
         how_to = self.get_how_to(query)
         if not how_to:
             self.speak_dialog("howto.failure")

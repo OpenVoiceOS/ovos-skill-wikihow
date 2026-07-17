@@ -22,26 +22,6 @@ class TestSkillInit(unittest.TestCase):
         skill = _make_skill()
         self.assertIn("en", skill.kw_matchers)
 
-    def test_query_blacklist_loaded_for_en(self):
-        skill = _make_skill()
-        self.assertIn("en", skill.query_blacklists)
-        self.assertIn("it", skill.query_blacklists["en"])
-
-
-class TestBlacklist(unittest.TestCase):
-    def test_bare_pronoun_is_blacklisted(self):
-        skill = _make_skill()
-        self.assertTrue(skill.is_blacklisted_query("it", "en-US"))
-        self.assertTrue(skill.is_blacklisted_query("THEM", "en-US"))
-
-    def test_real_subject_is_not_blacklisted(self):
-        skill = _make_skill()
-        self.assertFalse(skill.is_blacklisted_query("tie a tie", "en-US"))
-
-    def test_empty_query_is_not_blacklisted(self):
-        skill = _make_skill()
-        self.assertFalse(skill.is_blacklisted_query("", "en-US"))
-
 
 class TestExtractKeyword(unittest.TestCase):
     def test_extracts_query_from_how_to_utterance(self):
@@ -49,53 +29,8 @@ class TestExtractKeyword(unittest.TestCase):
         self.assertEqual(skill.extract_keyword("how do i make coffee", "en-US"),
                          "make coffee")
 
-    def test_pronoun_query_left_unresolved(self):
-        skill = _make_skill()
-        # the {query} slot value is the bare pronoun "it" -> refused (§4.3)
-        self.assertIsNone(skill.extract_keyword("steps for it", "en-US"))
-
-
-class TestIntentBlacklist(unittest.TestCase):
-    def test_intent_blacklist_loaded_for_en(self):
-        skill = _make_skill()
-        # wikihow.blacklist references <weather>; the weather vocabulary resolves
-        self.assertIn("en", skill.intent_blacklists)
-        self.assertIn("weather", skill.intent_blacklists["en"])
-
-    def test_weather_utterance_is_suppressed(self):
-        skill = _make_skill()
-        self.assertTrue(
-            skill.is_intent_blacklisted("what is the weather on wikihow", "en-US"))
-
-    def test_plain_howto_utterance_is_not_suppressed(self):
-        skill = _make_skill()
-        self.assertFalse(
-            skill.is_intent_blacklisted("how to tie a tie on wikihow", "en-US"))
-
-    def test_empty_utterance_is_not_suppressed(self):
-        skill = _make_skill()
-        self.assertFalse(skill.is_intent_blacklisted("", "en-US"))
-
 
 class TestHandleIntent(unittest.TestCase):
-    def test_blacklisted_query_speaks_failure(self):
-        skill = _make_skill()
-        skill.speak_dialog = MagicMock()
-        skill.get_how_to = MagicMock()
-        skill.handle_how_to_intent(Message("t", {"query": "it"}))
-        skill.speak_dialog.assert_called_with("howto.failure")
-        skill.get_how_to.assert_not_called()
-
-    def test_blacklisted_utterance_suppresses_lookup(self):
-        skill = _make_skill()
-        skill.speak_dialog = MagicMock()
-        skill.speak = MagicMock()
-        skill.get_how_to = MagicMock()
-        skill.handle_how_to_intent(
-            Message("t", {"query": "rain", "utterance": "what is the weather on wikihow"}))
-        skill.get_how_to.assert_not_called()
-        skill.speak.assert_not_called()
-
     def test_missing_result_speaks_failure(self):
         skill = _make_skill()
         skill.speak_dialog = MagicMock()

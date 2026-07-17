@@ -66,19 +66,3 @@ class TestWikiHowIntentRouting(_RoutingTest):
     def test_what_does_wikihow_say_about_topic(self):
         intents, _ = self._run("what does wikihow say about tie a tie")
         self.assertIn(("wikihow.intent", "tie a tie"), intents)
-
-
-class TestPronounSlotExclusion(_RoutingTest):
-    def test_pronoun_leaves_query_unresolved(self):
-        """A bare anaphoric pronoun carries no searchable subject.
-
-        The utterance still reaches the handler, but the {query} slot-value
-        exclusion (query.blacklist) refuses the pronoun, so the skill reports
-        failure instead of searching WikiHow for the bare "it".
-        """
-        intents, spoken = self._run("what does wikihow say about it")
-        self.assertIn(("wikihow.intent", "it"), intents)
-        self.assertTrue(spoken, "skill gave no response to the pronoun query")
-        # the WikiHow backend must never be queried for the bare pronoun
-        for utterance in spoken:
-            self.assertNotIn("it", utterance.lower().split()[:1])

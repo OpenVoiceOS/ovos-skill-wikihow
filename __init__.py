@@ -10,7 +10,11 @@ from ovos_utils.log import LOG
 from ovos_workshop.decorators import intent_handler, common_query
 from ovos_workshop.skills.ovos import OVOSSkill
 from padacioso import IntentContainer
-from padacioso.bracket_expansion import expand_parentheses
+
+try:  # padacioso >= 2.0
+    from padacioso import expand as expand_parentheses
+except ImportError:  # padacioso < 2.0
+    from padacioso.bracket_expansion import expand_parentheses
 from pywikihow import WikiHow
 from quebra_frases import sentence_tokenize
 
@@ -53,7 +57,7 @@ class WikiHowSkill(OVOSSkill):
         Uses Padacioso to manage keyword matching.
         """
         for lang in self.native_langs:
-            filename = f"{self.root_dir}/locale/{lang.lower()}/howto.intent"
+            filename = f"{self.root_dir}/locale/{lang}/howto.intent"
             if not os.path.isfile(filename):
                 LOG.warning(f"{filename} not found! wikihow common QA will be disabled for '{lang}'")
                 continue
@@ -187,8 +191,7 @@ class WikiHowSkill(OVOSSkill):
             self.gui.release()
 
     # intents
-    @intent_handler('wikihow.intent',
-                    voc_blacklist=["Weather", "Help"])
+    @intent_handler('wikihow.intent')
     def handle_how_to_intent(self, message) -> None:
         """
         Handle the 'how to' intent, search for WikiHow results, and speak them.
@@ -223,7 +226,7 @@ class WikiHowSkill(OVOSSkill):
             Optional[Tuple[str, CQSMatchLevel, str, Dict]]: The phrase, confidence level, response, and additional data if matched, otherwise None.
         """
 
-        if self.voc_match(phrase, "MiscBlacklist") or self.voc_match(phrase, "Weather"):
+        if self.voc_match(phrase, "misc_blacklist") or self.voc_match(phrase, "weather"):
             return None
 
         kw = self.extract_keyword(phrase, lang)

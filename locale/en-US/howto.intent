@@ -1,5 +1,5 @@
 (explain|) step by step {query}
-how can i {query}
-how do i {query}
-how to {query}
-steps for {query}
+(how (can|do|should|would) i|how do you) {query}
+(how to|show me how to|tell me how to) {query}
+(steps|instructions) (for|to) {query}
+what are the steps (for|to) {query}

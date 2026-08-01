@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.7a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.7a2) (2026-08-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.7a1...0.3.7a2)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#84](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/84) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.7a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.7a1) (2026-07-17)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.6a5...0.3.7a1)

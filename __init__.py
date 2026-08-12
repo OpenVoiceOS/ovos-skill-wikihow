@@ -212,6 +212,7 @@ class WikiHowSkill(OVOSSkill):
         """ If selected show gui """
         sess = SessionManager.get()
         how_to = self.session_results[sess.session_id]["how_to"]
+        self.session_results[sess.session_id]["selected"] = True
         self.speak_how_to(how_to)
 
     @common_query(callback=cq_callback)
@@ -238,10 +239,17 @@ class WikiHowSkill(OVOSSkill):
             return None
 
         sess = SessionManager.get()
+        # prune stale entries for other sessions that were never selected,
+        # otherwise self.session_results grows unbounded (losing candidates
+        # are never popped by speak_how_to since they never get to speak)
+        for sid in [sid for sid in self.session_results if sid != sess.session_id
+                    and not self.session_results[sid].get("selected")]:
+            self.session_results.pop(sid, None)
         self.session_results[sess.session_id] = {"phrase": phrase,
                                                  "image": None,
                                                  "lang": lang,
                                                  "stop_signaled": False,
+                                                 "selected": False,
                                                  "system_unit": sess.system_unit,
                                                  "spoken_answer": None}
         response = how_to["intro"]
@@ -250,7 +258,8 @@ class WikiHowSkill(OVOSSkill):
 
     def can_stop(self, message: Message) -> bool:
         sess = SessionManager.get(message)
-        return sess.session_id in self.session_results
+        return (sess.session_id in self.session_results and
+                self.session_results[sess.session_id].get("selected"))
 
     def stop_session(self, session: Session) -> bool:
         """
@@ -262,7 +271,8 @@ class WikiHowSkill(OVOSSkill):
         Returns:
             bool: True if the session was successfully stopped, False otherwise.
         """
-        if session.session_id in self.session_results:
+        if (session.session_id in self.session_results and
+                self.session_results[session.session_id].get("selected")):
             self.session_results[session.session_id]["stop_signaled"] = True
             if session.session_id == "default":
                 self.gui.release()

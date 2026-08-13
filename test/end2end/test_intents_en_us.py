@@ -10,6 +10,7 @@ from unittest import TestCase
 
 from ovos_bus_client.message import Message
 from ovos_bus_client.session import Session
+from ovos_spec_tools import canonical_intent_topic
 from ovoscope import get_minicroft
 
 SKILL_ID = "ovos-skill-wikihow.openvoiceos"
@@ -40,7 +41,12 @@ class _RoutingTest(TestCase):
         """Emit ``utterance`` and collect the intent + speak messages it yields."""
         intents = []
         spoken = []
-        self.bus.on(f"{SKILL_ID}:wikihow.intent",
+        # ovos-workshop dispatches intent handlers on the canonical topic
+        # (".intent" suffix stripped) since 9.3.13a1 - mirror the same
+        # canonicalization the skill's register_intent_file uses so this
+        # listener tracks the real contract instead of a hardcoded guess.
+        canonical_topic = canonical_intent_topic(f"{SKILL_ID}:wikihow.intent")
+        self.bus.on(canonical_topic,
                     lambda m: intents.append(("wikihow.intent", m.data.get("query"))))
         self.bus.on("speak",
                     lambda m: spoken.append(m.data.get("utterance", "")))

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.8a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.8a1) (2026-08-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.7a3...0.3.8a1)
+
+**Merged pull requests:**
+
+- fix: subscribe e2e tests to the canonical \(unsuffixed\) intent topic [\#89](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/89) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.7a3](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.7a3) (2026-08-12)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.7a2...0.3.7a3)

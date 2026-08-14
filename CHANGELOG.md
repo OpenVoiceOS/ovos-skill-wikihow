@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.9a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.9a1) (2026-08-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.8a1...0.3.9a1)
+
+**Merged pull requests:**
+
+- fix: stop misc\_blacklist "how" from vetoing all common-query how-to matches [\#88](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/88) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.8a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.8a1) (2026-08-14)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.7a3...0.3.8a1)

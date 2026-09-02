@@ -29,6 +29,24 @@ class TestExtractKeyword(unittest.TestCase):
         self.assertEqual(skill.extract_keyword("how do i make coffee", "en-US"),
                          "make coffee")
 
+    def test_extracts_query_from_polite_how_to_openers(self):
+        # OpenVoiceOS/ovos-skill-wikihow#92: polite openers like "could you
+        # please tell me how to X" fell through un-anchored, so the CQ
+        # keyword extractor never even considered them.
+        skill = _make_skill()
+        for utterance, expected in [
+            ("could you please tell me how to boil an egg", "boil an egg"),
+            ("can you tell me how to boil an egg", "boil an egg"),
+            ("can you explain how to tie a tie", "tie a tie"),
+            ("could you please explain how to tie a tie", "tie a tie"),
+            ("please show me how to boil an egg", "boil an egg"),
+            ("show me how to boil an egg", "boil an egg"),
+            ("i want to know how to boil an egg", "boil an egg"),
+            ("i need to learn how to tie a tie", "tie a tie"),
+        ]:
+            self.assertEqual(skill.extract_keyword(utterance, "en-US"), expected,
+                             f"failed to extract query from: {utterance!r}")
+
 
 class TestHandleIntent(unittest.TestCase):
     def test_missing_result_speaks_failure(self):

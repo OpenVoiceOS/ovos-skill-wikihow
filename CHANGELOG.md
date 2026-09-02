@@ -1,20 +1,148 @@
 # Changelog
 
-## [0.3.3a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.3a2) (2025-06-08)
+## [0.3.10a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.10a2) (2026-09-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.3a1...0.3.3a2)
-
-**Merged pull requests:**
-
-- fix: workshop 6.0.0 compat [\#52](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/52) ([JarbasAl](https://github.com/JarbasAl))
-
-## [0.3.3a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.3a1) (2025-05-15)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.2...0.3.3a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.10a1...0.3.10a2)
 
 **Merged pull requests:**
 
-- Update Catalan strings [\#51](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/51) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- test: add e2e coverage for the real common-query howto dispatch path [\#94](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/94) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.10a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.10a1) (2026-09-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.9a1...0.3.10a1)
+
+**Merged pull requests:**
+
+- fix: match polite how-to openers in howto.intent [\#93](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/93) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.9a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.9a1) (2026-08-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.8a1...0.3.9a1)
+
+**Merged pull requests:**
+
+- fix: stop misc\_blacklist "how" from vetoing all common-query how-to matches [\#88](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/88) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.8a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.8a1) (2026-08-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.7a3...0.3.8a1)
+
+**Merged pull requests:**
+
+- fix: subscribe e2e tests to the canonical \(unsuffixed\) intent topic [\#89](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/89) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.7a3](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.7a3) (2026-08-12)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.7a2...0.3.7a3)
+
+**Merged pull requests:**
+
+- test: add golden-utterance e2e suite [\#86](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/86) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.7a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.7a2) (2026-08-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.7a1...0.3.7a2)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#84](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/84) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.7a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.7a1) (2026-07-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.6a5...0.3.7a1)
+
+**Merged pull requests:**
+
+- fix\(en-US\): broaden how-to coverage and declare slot/intent blacklists [\#77](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/77) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.6a5](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.6a5) (2026-07-12)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.6a4...0.3.6a5)
+
+**Merged pull requests:**
+
+- fix: allow ovos-workshop 9.x [\#79](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/79) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.6a4](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.6a4) (2026-07-03)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.6a3...0.3.6a4)
+
+**Merged pull requests:**
+
+- chore: add ovoscope end2end intent-routing tests [\#76](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/76) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.6a3](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.6a3) (2026-04-09)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.6a2...0.3.6a3)
+
+**Merged pull requests:**
+
+- chore\(ovos-skill-wikihow\): allow ovos-workshop\<9.0.0 [\#74](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/74) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.6a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.6a2) (2026-04-04)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.6a1...0.3.6a2)
+
+**Merged pull requests:**
+
+- ci: modernize GitHub workflows [\#72](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/72) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.6a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.6a1) (2026-04-03)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.5a1...0.3.6a1)
+
+**Merged pull requests:**
+
+- fix\(i18n\): normalize locale folders to canonical BCP-47 [\#70](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/70) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.3.5a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.5a1) (2026-03-24)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a5...0.3.5a1)
+
+**Merged pull requests:**
+
+- fix: rename bare lang code locale directories [\#68](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/68) ([ovos-localize[bot]](https://github.com/apps/ovos-localize))
+- Add French WikiHow locale [\#67](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/67) ([goldyfruit](https://github.com/goldyfruit))
+
+## [0.3.4a5](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a5) (2026-02-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a4...0.3.4a5)
+
+## [0.3.4a4](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a4) (2026-02-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a3...0.3.4a4)
+
+**Merged pull requests:**
+
+- chore\(deps\): update actions/setup-python action to v6 [\#60](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/60) ([renovate[bot]](https://github.com/apps/renovate))
+- chore\(deps\): update actions/checkout action to v6 [\#58](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/58) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.3.4a3](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a3) (2026-01-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a2...0.3.4a3)
+
+**Merged pull requests:**
+
+- es-es/translate [\#64](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/64) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+
+## [0.3.4a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a2) (2025-12-21)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.4a1...0.3.4a2)
+
+**Merged pull requests:**
+
+- chore\(deps\): update dependency ovos\_workshop to v8 [\#61](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/61) ([renovate[bot]](https://github.com/apps/renovate))
+- chore: Configure Renovate [\#56](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/56) ([renovate[bot]](https://github.com/apps/renovate))
+- es-es/translate [\#55](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/55) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+
+## [0.3.4a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.4a1) (2025-07-12)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.3...0.3.4a1)
+
+**Merged pull requests:**
+
+- adding German translations [\#54](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/54) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 
 

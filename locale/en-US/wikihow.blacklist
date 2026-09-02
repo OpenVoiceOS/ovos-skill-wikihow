@@ -1,0 +1,5 @@
+# Intent suppression for wikihow.intent (OVOS-INTENT-2 §4.3): an utterance
+# about the weather belongs to a dedicated skill and must never trigger a
+# WikiHow lookup, even when it also names "wikihow". Referenced inline via
+# <weather> so the weather vocabulary stays the single source of truth.
+<weather>

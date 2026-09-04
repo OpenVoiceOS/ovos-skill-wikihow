@@ -52,6 +52,9 @@ NEGATIVE_UTTERANCES = [
     ("tell me the word of the day", "ovos-skill-word-of-the-day.openvoiceos"),
     ("can you spell word", "ovos-skill-spelling.openvoiceos"),
     ("set an alarm", "ovos-skill-alerts.openvoiceos"),
+    ("open the wikipedia app", "ovos-skill-wikipedia.openvoiceos"),
+    ("search wikipedia for tie a tie", "ovos-skill-wikipedia.openvoiceos"),
+    ("search wiktionary for tie a tie", "ovos-skill-wiktionary.openvoiceos"),
 ]
 
 

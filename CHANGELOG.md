@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.0a1) (2026-09-07)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.10a2...0.4.0a1)
+
+**Merged pull requests:**
+
+- feat: pt-BR, nl-NL, sv-SE, kab locale parity [\#99](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/99) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.10a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.3.10a2) (2026-09-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.10a1...0.3.10a2)

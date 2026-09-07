@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.0a2) (2026-09-07)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.0a1...0.4.0a2)
+
+**Merged pull requests:**
+
+- Update dependency pytest to v9 [\#95](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/95) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.4.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.0a1) (2026-09-07)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.3.10a2...0.4.0a1)

@@ -1,0 +1,3 @@
+(pesquisar|procurar|buscar) {query} no (wiki how|wikihow)
+pesquisar (wiki how|wikihow) (por|) {query}
+o que o (wiki how|wikihow) (diz|pensa) sobre {query}

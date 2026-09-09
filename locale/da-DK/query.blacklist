@@ -1,0 +1,7 @@
+# Anaforiske pronominer der ikke må udfylde {query}-feltet (OVOS-INTENT-2 §4.3).
+# Når hele feltets værdi er et af disse, har "hvad siger wikihow om det" eller
+# "hvordan gør man det" intet søgbart emne; feltet efterlades uafklaret så et
+# senere trin (kontekstopfyldning eller genspørgsel) kan levere referencen
+# i stedet for at søge WikiHow efter det bare pronomen.
+(det|dette|denne|disse|de|en)
+(han|hun|de|ham|hende|dem|hans|hendes|deres)

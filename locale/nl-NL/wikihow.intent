@@ -1,0 +1,3 @@
+(zoek|zoek op|vind) {query} op (wiki how|wikihow)
+zoek (wiki how|wikihow) (naar|) {query}
+wat zegt (wiki how|wikihow) over {query}

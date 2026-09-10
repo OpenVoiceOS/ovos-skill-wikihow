@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Cómo hacer casi todo.",
+  "examples": [
+    "Cómo hervir un huevo",
+    "Cómo puedo hacer que mi perro deje de ladrar"
+  ],
+  "tags": [
+    "a diario",
+    "información"
+  ]
+}

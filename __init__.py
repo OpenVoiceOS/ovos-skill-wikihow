@@ -10,7 +10,11 @@ from ovos_utils.log import LOG
 from ovos_workshop.decorators import intent_handler, common_query
 from ovos_workshop.skills.ovos import OVOSSkill
 from padacioso import IntentContainer
-from padacioso.bracket_expansion import expand_parentheses
+
+try:  # padacioso >= 2.0
+    from padacioso import expand as expand_parentheses
+except ImportError:  # padacioso < 2.0
+    from padacioso.bracket_expansion import expand_parentheses
 from pywikihow import WikiHow
 from quebra_frases import sentence_tokenize
 
@@ -53,7 +57,7 @@ class WikiHowSkill(OVOSSkill):
         Uses Padacioso to manage keyword matching.
         """
         for lang in self.native_langs:
-            filename = f"{self.root_dir}/locale/{lang.lower()}/howto.intent"
+            filename = f"{self.root_dir}/locale/{lang}/howto.intent"
             if not os.path.isfile(filename):
                 LOG.warning(f"{filename} not found! wikihow common QA will be disabled for '{lang}'")
                 continue
@@ -187,8 +191,7 @@ class WikiHowSkill(OVOSSkill):
             self.gui.release()
 
     # intents
-    @intent_handler('wikihow.intent',
-                    voc_blacklist=["Weather", "Help"])
+    @intent_handler('wikihow.intent')
     def handle_how_to_intent(self, message) -> None:
         """
         Handle the 'how to' intent, search for WikiHow results, and speak them.
@@ -209,6 +212,7 @@ class WikiHowSkill(OVOSSkill):
         """ If selected show gui """
         sess = SessionManager.get()
         how_to = self.session_results[sess.session_id]["how_to"]
+        self.session_results[sess.session_id]["selected"] = True
         self.speak_how_to(how_to)
 
     @common_query(callback=cq_callback)
@@ -223,7 +227,7 @@ class WikiHowSkill(OVOSSkill):
             Optional[Tuple[str, CQSMatchLevel, str, Dict]]: The phrase, confidence level, response, and additional data if matched, otherwise None.
         """
 
-        if self.voc_match(phrase, "MiscBlacklist") or self.voc_match(phrase, "Weather"):
+        if self.voc_match(phrase, "misc_blacklist") or self.voc_match(phrase, "weather"):
             return None
 
         kw = self.extract_keyword(phrase, lang)
@@ -235,10 +239,17 @@ class WikiHowSkill(OVOSSkill):
             return None
 
         sess = SessionManager.get()
+        # prune stale entries for other sessions that were never selected,
+        # otherwise self.session_results grows unbounded (losing candidates
+        # are never popped by speak_how_to since they never get to speak)
+        for sid in [sid for sid in self.session_results if sid != sess.session_id
+                    and not self.session_results[sid].get("selected")]:
+            self.session_results.pop(sid, None)
         self.session_results[sess.session_id] = {"phrase": phrase,
                                                  "image": None,
                                                  "lang": lang,
                                                  "stop_signaled": False,
+                                                 "selected": False,
                                                  "system_unit": sess.system_unit,
                                                  "spoken_answer": None}
         response = how_to["intro"]
@@ -247,7 +258,8 @@ class WikiHowSkill(OVOSSkill):
 
     def can_stop(self, message: Message) -> bool:
         sess = SessionManager.get(message)
-        return sess.session_id in self.session_results
+        return (sess.session_id in self.session_results and
+                self.session_results[sess.session_id].get("selected"))
 
     def stop_session(self, session: Session) -> bool:
         """
@@ -259,7 +271,8 @@ class WikiHowSkill(OVOSSkill):
         Returns:
             bool: True if the session was successfully stopped, False otherwise.
         """
-        if session.session_id in self.session_results:
+        if (session.session_id in self.session_results and
+                self.session_results[session.session_id].get("selected")):
             self.session_results[session.session_id]["stop_signaled"] = True
             if session.session_id == "default":
                 self.gui.release()

@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.4.1a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.1a1) (2026-09-10)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.0a2...0.4.1a1)
+
+**Merged pull requests:**
+
+- translate\(da-DK\): add missing query.blacklist, wikihow.blacklist; fix double space [\#103](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/103) ([andlo](https://github.com/andlo))
+- fix\(da-DK\): add missing misc\_blacklist.voc, weather.voc [\#102](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/102) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.4.0a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.0a2) (2026-09-07)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.0a1...0.4.0a2)

@@ -3,3 +3,15 @@
 # WikiHow lookup, even when it also names "wikihow". Referenced inline via
 # <weather> so the weather vocabulary stays the single source of truth.
 <weather>
+# Live-probed false positive (MiniCroft, en-US): "search wikipedia for tie
+# a tie" was claimed by wikihow.intent -- the fuzzy padatious matcher was
+# treating "wikipedia" as a near-match for the "wiki how|wikihow" tokens in
+# "search (wiki how|wikihow) (for|) {query}". Wikipedia lookups belong to
+# ovos-skill-wikipedia, never to WikiHow, so any mention of "wikipedia" must
+# veto this intent outright.
+wikipedia
+# Live-probed false positive (MiniCroft, en-US): "search wiktionary for tie
+# a tie" was also claimed for the same reason -- "wiktionary" fuzzy-matches
+# "wiki how|wikihow" just as readily. Dictionary lookups belong to a
+# dictionary/wiktionary skill, never to WikiHow.
+wiktionary

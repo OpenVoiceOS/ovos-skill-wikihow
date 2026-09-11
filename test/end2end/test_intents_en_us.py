@@ -65,10 +65,54 @@ class TestWikiHowIntentRouting(_RoutingTest):
         intents, _ = self._run("search wikihow for tie a tie")
         self.assertIn(("wikihow.intent", "tie a tie"), intents)
 
+    def test_search_wikihow_for_topic_alt_slot(self):
+        intents, _ = self._run("search wikihow for planting tomatoes")
+        self.assertIn(("wikihow.intent", "planting tomatoes"), intents)
+
+    def test_search_wiki_how_no_for(self):
+        intents, _ = self._run("search wiki how bake bread")
+        self.assertIn(("wikihow.intent", "bake bread"), intents)
+
     def test_find_topic_on_wikihow(self):
         intents, _ = self._run("find make coffee on wikihow")
         self.assertIn(("wikihow.intent", "make coffee"), intents)
 
+    def test_look_up_topic_on_wiki_how(self):
+        intents, _ = self._run("look up how to fold a paper airplane on wiki how")
+        self.assertIn(("wikihow.intent", "how to fold a paper airplane"), intents)
+
+    def test_find_topic_on_wiki_how(self):
+        intents, _ = self._run("find changing a tire on wiki how")
+        self.assertIn(("wikihow.intent", "changing a tire"), intents)
+
     def test_what_does_wikihow_say_about_topic(self):
         intents, _ = self._run("what does wikihow say about tie a tie")
         self.assertIn(("wikihow.intent", "tie a tie"), intents)
+
+    def test_what_does_wiki_how_think_about_topic(self):
+        intents, _ = self._run("what does wiki how think about boiling an egg")
+        self.assertIn(("wikihow.intent", "boiling an egg"), intents)
+
+    def test_what_does_wikihow_say_about_topic_alt_slot(self):
+        intents, _ = self._run("what does wikihow say about setting up a tent")
+        self.assertIn(("wikihow.intent", "setting up a tent"), intents)
+
+
+class TestWikiHowIntentNegatives(_RoutingTest):
+    """Sibling-confusion negatives: phrasings that must NOT be claimed by
+    the padatious ``wikihow.intent`` (they route, if at all, through the
+    separate common-query "how to" surface covered in
+    ``test_common_query_howto_surface.py``, which has no bare 'wikihow'
+    mention for padatious to key off of here)."""
+
+    def test_bare_how_to_does_not_match_wikihow_intent(self):
+        intents, _ = self._run("how do i tie a tie")
+        self.assertNotIn("wikihow.intent", [i[0] for i in intents])
+
+    def test_tell_me_how_to_does_not_match_wikihow_intent(self):
+        intents, _ = self._run("tell me how to boil an egg")
+        self.assertNotIn("wikihow.intent", [i[0] for i in intents])
+
+    def test_open_wikipedia_app_does_not_match_wikihow_intent(self):
+        intents, _ = self._run("open the wikipedia app")
+        self.assertNotIn("wikihow.intent", [i[0] for i in intents])

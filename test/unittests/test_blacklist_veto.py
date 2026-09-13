@@ -93,5 +93,53 @@ class TestBlacklistDoesNotVetoOrdinaryQuestions(unittest.TestCase):
             self._assert_not_vetoed("it-IT", phrase)
 
 
+class TestWikihowIntentBlacklistVetoesWordnet(unittest.TestCase):
+    """``wikihow.blacklist`` words reach padatious as ``blacklisted_words``.
+
+    CI run 34774266957 (attempt 1): padatious-medium matched
+    "ask wordnet about word" to ``wikihow.intent`` with ``query="word"``. The
+    score is near the medium threshold (0.597 on ovos-padatious 2.1.4a1), so
+    the same test passed on the next attempt. The blacklist veto removes the
+    match on every run.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        import tempfile
+        from pathlib import Path
+
+        from ovos_padatious import IntentContainer
+        from ovos_spec_tools import expand
+
+        locale = Path(__file__).resolve().parents[2] / "locale" / "en-US"
+
+        def _lines(name):
+            with open(locale / name, encoding="utf-8") as f:
+                return [line.strip() for line in f
+                        if line.strip() and not line.startswith("#")]
+
+        samples = sorted({s for line in _lines("wikihow.intent") for s in expand(line)})
+        # a <ref> line expands from another vocabulary; only literal words here
+        words = [w for w in _lines("wikihow.blacklist") if not w.startswith("<")]
+        cls._cache = tempfile.TemporaryDirectory()
+        cls.container = IntentContainer(cls._cache.name)
+        cls.container.add_intent("wikihow", samples, blacklisted_words=words)
+        cls.container.train()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls._cache.cleanup()
+
+    def test_wordnet_request_not_matched(self):
+        match = self.container.calc_intent("ask wordnet about word")
+        self.assertNotEqual(match.name, "wikihow",
+                            f"wikihow.intent matched with conf {match.conf}")
+
+    def test_wikihow_requests_still_matched(self):
+        for phrase in ["search wikihow for tie a tie",
+                       "what does wikihow say about knots"]:
+            self.assertEqual(self.container.calc_intent(phrase).name, "wikihow", phrase)
+
+
 if __name__ == "__main__":
     unittest.main()

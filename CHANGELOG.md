@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.5a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.5a1) (2026-09-13)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.4a1...0.4.5a1)
+
+**Merged pull requests:**
+
+- fix: stop wikihow.intent from claiming WordNet requests [\#113](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/113) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.4.4a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.4a1) (2026-09-13)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.3a1...0.4.4a1)

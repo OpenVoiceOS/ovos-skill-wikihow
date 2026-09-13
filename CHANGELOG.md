@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.1a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.1a2) (2026-09-13)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.1a1...0.4.1a2)
+
+**Merged pull requests:**
+
+- locale: parity voc files for eu-ES, gl-ES, it-IT, pt-PT [\#105](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/105) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.4.1a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.1a1) (2026-09-10)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.0a2...0.4.1a1)

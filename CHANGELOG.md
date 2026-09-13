@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.3a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.3a1) (2026-09-13)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.2a1...0.4.3a1)
+
+**Merged pull requests:**
+
+- fix: lowercase-underscore dialog base name \(OVOS-INTENT-2 §2\) [\#106](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/106) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.4.2a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.2a1) (2026-09-13)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.1a2...0.4.2a1)

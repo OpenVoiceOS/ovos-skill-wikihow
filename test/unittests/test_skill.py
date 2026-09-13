@@ -54,7 +54,7 @@ class TestHandleIntent(unittest.TestCase):
         skill.speak_dialog = MagicMock()
         skill.get_how_to = MagicMock(return_value=None)
         skill.handle_how_to_intent(Message("t", {"query": "tie a tie"}))
-        skill.speak_dialog.assert_called_with("howto.failure")
+        skill.speak_dialog.assert_called_with("howto_failure")
 
 
 if __name__ == "__main__":

@@ -202,7 +202,7 @@ class WikiHowSkill(OVOSSkill):
         query = message.data["query"]
         how_to = self.get_how_to(query)
         if not how_to:
-            self.speak_dialog("howto.failure")
+            self.speak_dialog("howto_failure")
             self.remove_context("WikiHow")
         else:
             sess = SessionManager.get(message)

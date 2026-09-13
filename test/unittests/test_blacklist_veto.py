@@ -46,6 +46,12 @@ class TestBlacklistDoesNotVetoOrdinaryQuestions(unittest.TestCase):
             f"{lang}: weather.voc vetoed ordinary question {phrase!r}",
         )
 
+    def _assert_vetoed(self, lang, phrase):
+        self.assertTrue(
+            self.skill.voc_match(phrase, "weather", lang=lang),
+            f"{lang}: weather.voc did not veto weather question {phrase!r}",
+        )
+
     def test_eu_es_ordinary_questions_not_vetoed(self):
         for phrase in [
             "nola egiten da ogia",       # was vetoed by bare "da"
@@ -69,6 +75,14 @@ class TestBlacklistDoesNotVetoOrdinaryQuestions(unittest.TestCase):
             "como organizar o meu tempo",
         ]:
             self._assert_not_vetoed("pt-PT", phrase)
+
+    def test_pt_pt_weather_questions_still_vetoed(self):
+        for phrase in [
+            "como está o tempo hoje",
+            "como vai estar o tempo amanhã",
+            "qual é a previsão do tempo para amanhã",
+        ]:
+            self._assert_vetoed("pt-PT", phrase)
 
     def test_it_it_ordinary_questions_not_vetoed(self):
         for phrase in [

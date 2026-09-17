@@ -1,6 +1,6 @@
 """Golden-utterance end-to-end coverage for ovos-skill-wikihow (en-US).
 
-The golden corpus (``golden_utterances.jsonl``) is a vendored slice of the
+The golden corpus (``golden_utterances_en-US.jsonl``) is a vendored slice of the
 shared ovoscope golden-utterance dataset, keyed by
 ``skill_id == "ovos-skill-wikihow.openvoiceos"`` (matches this skill's real
 OPM entry point too, see ``pyproject.toml``). One shared ``MiniCroft``
@@ -36,7 +36,7 @@ _IGNORE = [
     "mycroft.audio.play_sound",
 ]
 
-GOLDEN_PATH = Path(__file__).parent / "golden_utterances.jsonl"
+GOLDEN_PATH = Path(__file__).parent / "golden_utterances_en-US.jsonl"
 
 # utterances lifted verbatim from OTHER skills' golden-utterance slices in
 # the shared ovoscope corpus, picked for lexical overlap with wikihow's

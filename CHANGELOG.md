@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.5.0a1) (2026-09-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.5a1...0.5.0a1)
+
+**Merged pull requests:**
+
+- feat\(locale\): fill de-DE, es-ES, gl-ES, eu-ES and ca-ES gaps against en-US [\#117](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/117) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+- feat\(locale\): fill pt-PT gap against en-US [\#116](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/116) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.4.5a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.4.5a1) (2026-09-13)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.4a1...0.4.5a1)

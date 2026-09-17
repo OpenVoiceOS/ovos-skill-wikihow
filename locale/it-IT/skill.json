@@ -1,0 +1,13 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Come fare quasi qualsiasi cosa.",
+  "examples": [
+    "come si fa bollire un uovo",
+    "come faccio a far smettere di abbaiare il mio cane"
+  ],
+  "tags": [
+    "quotidiano", "informazione"
+  ]
+}

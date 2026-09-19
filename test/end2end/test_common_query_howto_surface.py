@@ -96,7 +96,7 @@ class TestCommonQueryHowToSurface(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.minicroft = get_minicroft([WIKIHOW_ID])
+        cls.minicroft = get_minicroft([WIKIHOW_ID], extra_pipelines=["ovos-common-query-pipeline-plugin"])
         loaded = set(cls.minicroft.plugin_skills)
         assert WIKIHOW_ID in loaded, (
             f"wikihow failed to load into MiniCroft (loaded: {sorted(loaded)!r})"

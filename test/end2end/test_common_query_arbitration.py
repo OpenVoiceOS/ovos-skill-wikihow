@@ -133,7 +133,8 @@ class TestCommonQueryArbitration(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.minicroft = get_minicroft([WIKIHOW_ID, WOLFIE_ID])
+        cls.minicroft = get_minicroft([WIKIHOW_ID, WOLFIE_ID],
+                                    extra_pipelines=["ovos-common-query-pipeline-plugin"])
         _assert_skills_loaded(cls.minicroft, [WIKIHOW_ID, WOLFIE_ID])
         cls.wikihow = cls.minicroft.plugin_skills[WIKIHOW_ID].instance
         cls.wolfie = cls.minicroft.plugin_skills[WOLFIE_ID].instance
@@ -226,7 +227,8 @@ class TestStopHijackOnLostCandidacy(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.minicroft = get_minicroft([WIKIHOW_ID, WOLFIE_ID])
+        cls.minicroft = get_minicroft([WIKIHOW_ID, WOLFIE_ID],
+                                    extra_pipelines=["ovos-common-query-pipeline-plugin"])
         _assert_skills_loaded(cls.minicroft, [WIKIHOW_ID, WOLFIE_ID])
         cls.wikihow = cls.minicroft.plugin_skills[WIKIHOW_ID].instance
         cls.wolfie = cls.minicroft.plugin_skills[WOLFIE_ID].instance

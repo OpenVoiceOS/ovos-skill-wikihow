@@ -1,0 +1,13 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Hoe je bijna alles doet.",
+  "examples": [
+    "hoe kook je een ei",
+    "hoe zorg ik dat mijn hond stopt met blaffen"
+  ],
+  "tags": [
+    "dagelijks", "informatie"
+  ]
+}

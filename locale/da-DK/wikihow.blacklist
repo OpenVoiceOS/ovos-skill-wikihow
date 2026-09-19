@@ -1,0 +1,5 @@
+# Intent-undertrykkelse for wikihow.intent (OVOS-INTENT-2 §4.3): en ytring om
+# vejret hører til et dedikeret skill og må aldrig udløse et WikiHow-opslag,
+# selv når "wikihow" også nævnes. Refereret via <weather> så vejr-ordforrådet
+# forbliver den eneste kilde til sandhed.
+<weather>

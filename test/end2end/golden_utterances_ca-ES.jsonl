@@ -1,0 +1,2 @@
+{"skill_id": "ovos-skill-wikihow.openvoiceos", "utterance": "cerca a wiki how sobre pizza", "lang": "ca-ES", "intent_label": "wikihow.intent", "intent_type": "padatious", "expected_messages": ["speak"], "needs_manual": false, "machine_generated": true}
+{"skill_id": "ovos-skill-wikihow.openvoiceos", "utterance": "cerca a wiki how sobre yoga", "lang": "ca-ES", "intent_label": "wikihow.intent", "intent_type": "padatious", "expected_messages": ["speak"], "needs_manual": false, "machine_generated": true}

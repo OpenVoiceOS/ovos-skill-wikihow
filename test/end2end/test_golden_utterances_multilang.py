@@ -41,10 +41,14 @@ _IGNORE = [
 
 END2END_DIR = Path(__file__).parent
 
-LANGS = [
-    "ca-ES", "da-DK", "de-DE", "es-ES", "eu-ES", "fr-FR", "gl-ES",
-    "it-IT", "kab", "nl-NL", "pt-BR", "pt-PT", "sv-SE",
-]
+# en-US runs in test_golden_utterances.py.
+EXCLUDED_LANGS = {"en-US"}
+LANGS = sorted(
+    lang for lang in (p.stem.split("golden_utterances_", 1)[1]
+                      for p in END2END_DIR.glob("golden_utterances_*.jsonl"))
+    if lang not in EXCLUDED_LANGS
+)
+assert LANGS, "no golden_utterances_<lang>.jsonl files found"
 
 
 def _matches_intent(msg_type: str, skill_id: str, intent_label: str) -> bool:
@@ -69,6 +73,7 @@ def _load_rows(lang):
             if row.get("needs_manual"):
                 continue
             rows.append(row)
+    assert rows, f"{lang}: no golden rows"
     return rows
 
 

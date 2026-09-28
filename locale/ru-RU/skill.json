@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Как делать почти все.",
+  "examples": [
+    "Как сварить яйцо",
+    "поиск пиццы на wikihow"
+  ],
+  "tags": [
+    "daily",
+    "information"
+  ]
+}

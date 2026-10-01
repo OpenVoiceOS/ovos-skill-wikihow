@@ -1,0 +1,3 @@
+{"skill_id": "ovos-skill-wikihow.openvoiceos", "utterance": "busca wiki how para pizza", "lang": "es-ES", "intent_label": "wikihow.intent", "intent_type": "padatious", "expected_messages": ["speak"], "needs_manual": false, "machine_generated": true}
+{"skill_id": "ovos-skill-wikihow.openvoiceos", "utterance": "qué piensa wikihow acerca de pizza", "lang": "es-ES", "intent_label": "wikihow.intent", "intent_type": "padatious", "expected_messages": ["speak"], "needs_manual": false, "machine_generated": true}
+{"skill_id": "ovos-skill-wikihow.openvoiceos", "utterance": "busca wiki how para yoga", "lang": "es-ES", "intent_label": "wikihow.intent", "intent_type": "padatious", "expected_messages": ["speak"], "needs_manual": false, "machine_generated": true}

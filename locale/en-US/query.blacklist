@@ -1,0 +1,7 @@
+# Anaphoric pronouns that must not fill the {query} slot (OVOS-INTENT-2 §4.3).
+# When the whole slot value is one of these, "what does wikihow say about it"
+# or "how do you do that" carries no searchable subject; the slot is left
+# unresolved so a later stage (OVOS-CONTEXT-1 §7 context fill or a re-prompt)
+# can supply the referent instead of searching WikiHow for the bare pronoun.
+(it|this|that|these|those|one)
+(he|she|they|him|her|them|his|hers|theirs)

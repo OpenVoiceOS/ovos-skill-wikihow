@@ -1,0 +1,13 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Hur man gör nästan allt.",
+  "examples": [
+    "hur kokar man ett ägg",
+    "hur får jag min hund att sluta skälla"
+  ],
+  "tags": [
+    "dagligt", "information"
+  ]
+}

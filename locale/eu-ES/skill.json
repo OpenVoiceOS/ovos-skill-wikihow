@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Ia edozer nola egin jakiteko.",
+  "examples": [
+    "nola egosi arrautza bat",
+    "nola egin nire zakurrak zaunkarik ez egiteko"
+  ],
+  "tags": [
+    "eguneroko",
+    "informazioa"
+  ]
+}

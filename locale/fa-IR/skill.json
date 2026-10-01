@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "چگونه تقریباً هر کاری را انجام دهیم.",
+  "examples": [
+    "چگونه می توانم یک تخم مرغ آب پز کنم",
+    "جستجو پیتزا در wikihow"
+  ],
+  "tags": [
+    "daily",
+    "information"
+  ]
+}

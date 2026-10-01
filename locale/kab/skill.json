@@ -1,0 +1,13 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Amek ara nexdem qrib kullec.",
+  "examples": [
+    "amek ara nsellew tamellalt",
+    "amek ara sḥebseɣ aqjun-inu ad yeqqar"
+  ],
+  "tags": [
+    "n wass", "talɣut"
+  ]
+}

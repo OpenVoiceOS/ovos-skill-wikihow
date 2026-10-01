@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.2a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.2a2) (2026-10-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.7.2a1...0.7.2a2)
+
+**Merged pull requests:**
+
+- fix\(locale\): add the missing space in the ca-ES wikihow.intent line 2 [\#132](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/132) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.7.2a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.2a1) (2026-09-28)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.7.1a3...0.7.2a1)
@@ -42,19 +50,19 @@
 
 ## [0.7.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.0a1) (2026-09-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.6.0a1...0.7.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.5.0a1...0.7.0a1)
 
 **Merged pull requests:**
 
 - feat\(locale\): fill fr-FR and it-IT gaps against en-US [\#115](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/115) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
 
-## [0.6.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.6.0a1) (2026-09-17)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.5.0a1...0.6.0a1)
-
 ## [0.5.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.5.0a1) (2026-09-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.5a1...0.5.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.6.0a1...0.5.0a1)
+
+## [0.6.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.6.0a1) (2026-09-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.5a1...0.6.0a1)
 
 **Merged pull requests:**
 
@@ -467,25 +475,13 @@
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.8a1...0.2.8)
 
-**Merged pull requests:**
-
-- Release 0.2.8a1 [\#28](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/28) ([github-actions[bot]](https://github.com/apps/github-actions))
-
 ## [0.2.8a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.8a1) (2024-11-19)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.7...0.2.8a1)
 
-**Merged pull requests:**
-
-- fix:allow workshop 3.0.0 [\#27](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/27) ([JarbasAl](https://github.com/JarbasAl))
-
 ## [0.2.7](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.7) (2024-11-17)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.7a1...0.2.7)
-
-**Merged pull requests:**
-
-- Release 0.2.7a1 [\#26](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/26) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [0.2.7a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.7a1) (2024-11-17)
 

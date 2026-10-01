@@ -8,7 +8,8 @@ golden rows here (see __init__.py's ``register_kw_xtract``).
 Every locale that ships a wikihow.intent gets its own
 golden_utterances_<lang>.jsonl, rows expanded directly from that locale's
 own template lines with {query} filled by an obvious loanword (pizza /
-yoga).
+yoga). The runner loads every golden_utterances_<lang>.jsonl file except
+en-US and runs every row, including rows marked needs_manual.
 
 One MiniCroft is booted per locale in turn (lang=<locale>, no
 secondary_langs -- see ovos-skill-date-time/test/end2end/test_intents_it_it.py
@@ -41,10 +42,12 @@ _IGNORE = [
 
 END2END_DIR = Path(__file__).parent
 
-LANGS = [
-    "ca-ES", "da-DK", "de-DE", "es-ES", "eu-ES", "fr-FR", "gl-ES",
-    "it-IT", "kab", "nl-NL", "pt-BR", "pt-PT", "sv-SE",
-]
+# en-US runs in test_golden_utterances.py, with its negative cases.
+LANGS = sorted(
+    p.stem.removeprefix("golden_utterances_")
+    for p in END2END_DIR.glob("golden_utterances_*.jsonl")
+    if p.stem != "golden_utterances_en-US"
+)
 
 
 def _matches_intent(msg_type: str, skill_id: str, intent_label: str) -> bool:
@@ -65,10 +68,7 @@ def _load_rows(lang):
             line = line.strip()
             if not line:
                 continue
-            row = json.loads(line)
-            if row.get("needs_manual"):
-                continue
-            rows.append(row)
+            rows.append(json.loads(line))
     return rows
 
 

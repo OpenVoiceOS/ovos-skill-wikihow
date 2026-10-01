@@ -80,10 +80,7 @@ def _load_golden_rows():
             line = line.strip()
             if not line:
                 continue
-            row = json.loads(line)
-            if row.get("needs_manual"):
-                continue
-            rows.append(row)
+            rows.append(json.loads(line))
     return rows
 
 

@@ -70,7 +70,7 @@ _PIPELINE = [
     "ovos-stop-pipeline-plugin-high",
     "ovos-converse-pipeline-plugin",
     "ovos-ocp-pipeline-plugin-high",
-    "ovos-padatious-pipeline-plugin-high",
+    "ovos-padacioso-pipeline-plugin-high",
     "ovos-adapt-pipeline-plugin-high",
     "ovos-m2v-pipeline-high",
     "ovos-ocp-pipeline-plugin-medium",

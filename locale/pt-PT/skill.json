@@ -1,0 +1,13 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Como fazer quase tudo.",
+  "examples": [
+    "como cozer um ovo",
+    "como faço para o meu cão parar de ladrar"
+  ],
+  "tags": [
+    "daily", "information"
+  ]
+}

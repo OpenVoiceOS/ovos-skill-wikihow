@@ -1,3 +1,14 @@
 (zoek|zoek op|vind) {query} op (wiki how|wikihow)
 zoek (wiki how|wikihow) (naar|) {query}
 wat zegt (wiki how|wikihow) over {query}
+hoe (kan ik|moet ik) {query} volgens (wiki how|wikihow)
+ik heb hulp nodig (bij|met) {query}, (toon|geef) me de (wiki how|wikihow) (stappen|handleiding)
+ik wil advies over {query}, (toon|geef) me de (wiki how|wikihow) (stappen|handleiding)
+(kijk|check|neem een kijkje) op (wiki how|wikihow) (naar|voor|over) {query}
+(kun|zou) je {query} opzoeken (op|in) (wiki how|wikihow)
+(open|lees) het wikihow artikel (over|voor) {query}
+(open|lees) de wikihow (gids|pagina) (over|voor) {query}
+toon me (het wikihow artikel|de wikihow gids|de wikihow pagina) (over|voor) {query}
+(toon|geef) me de (wiki how|wikihow) stappen voor {query}
+(vind|zoek) {query} op (wiki how|wikihow)
+(wiki how|wikihow) (handleiding|tips) (voor|over) {query}

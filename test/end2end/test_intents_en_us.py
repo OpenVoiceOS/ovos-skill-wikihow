@@ -1,7 +1,7 @@
 """End-to-end intent-routing tests for the en-US WikiHow skill.
 
 Boots an in-process MiniCroft with the skill loaded and feeds it real
-utterances through the padatious pipeline, asserting where each one routes and
+utterances through the padacioso pipeline, asserting where each one routes and
 how the {query} slot is filled. The network lookup is stubbed so the suite is
 deterministic and offline.
 """
@@ -16,8 +16,8 @@ from ovoscope import get_minicroft
 SKILL_ID = "ovos-skill-wikihow.openvoiceos"
 LANG = "en-US"
 PIPELINE = [
-    "ovos-padatious-pipeline-plugin-high",
-    "ovos-padatious-pipeline-plugin-medium",
+    "ovos-padacioso-pipeline-plugin-high",
+    "ovos-padacioso-pipeline-plugin-medium",
 ]
 
 

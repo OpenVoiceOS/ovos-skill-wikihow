@@ -9,7 +9,7 @@ in this repo send an utterance through a MiniCroft whose session pipeline
 actually includes ``ovos-common-query-pipeline-plugin`` and then assert on
 the resulting ``question:query.response`` for a plain, uncontested "how to"
 utterance -- ``test_golden_utterances.py`` and ``test_intents_en_us.py``
-both pin the *padatious* ``wikihow.intent`` handler instead, which is a
+both pin the intent-file ``wikihow.intent`` handler instead, which is a
 different code path with its own locale file, and
 ``test_common_query_arbitration.py`` targets a specific arbitration
 regression (misc_blacklist self-veto / stop hijack) with a competing skill
@@ -33,7 +33,7 @@ me how to" -- a polite opener already on dev -- so the positive assertions
 hold against current dev. If/when #93 merges, its new templates would be
 natural additions to this list.
 
-``golden_utterances.jsonl`` rows are keyed by ``intent_type: padatious``
+``golden_utterances.jsonl`` rows are keyed by ``wikihow.intent``
 against ``wikihow.intent`` (see ``test_golden_utterances.py``'s docstring)
 and have no field for "which pipeline plugin should claim this" -- there is
 no common-query marker in the org's golden-row schema to add rows under, so
@@ -57,7 +57,7 @@ _PIPELINE = [
     "ovos-stop-pipeline-plugin-high",
     "ovos-converse-pipeline-plugin",
     "ovos-ocp-pipeline-plugin-high",
-    "ovos-padatious-pipeline-plugin-high",
+    "ovos-padacioso-pipeline-plugin-high",
     "ovos-adapt-pipeline-plugin-high",
     "ovos-m2v-pipeline-high",
     "ovos-ocp-pipeline-plugin-medium",

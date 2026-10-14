@@ -1,3 +1,6 @@
 (pesquisar|procurar|buscar) {query} no (wiki how|wikihow)
 pesquisar (wiki how|wikihow) (por|) {query}
 o que o (wiki how|wikihow) (diz|pensa) sobre {query}
+(abra|leia|mostre) (pra mim |)(o artigo|o guia|a página) do (wiki how|wikihow) (sobre|de) {query}
+(confira|veja|consulte) no (wiki how|wikihow) (sobre|) {query}
+(você pode|poderia) (buscar|consultar) no (wiki how|wikihow) {query}

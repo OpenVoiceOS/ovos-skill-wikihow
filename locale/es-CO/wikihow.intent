@@ -1,2 +1,9 @@
 busca (wiki how|wikihow) (para|) {query}
 qué (dice|piensa) (wiki how|wikihow) (sobre|acerca de) {query}
+(abre|lee|muéstrame) (el artículo|la guía|la página) de (wiki how|wikihow) (sobre|de) {query}
+cómo (puedo|se puede) {query} (con ayuda de|usando) (wiki how|wikihow)
+(muéstrame|dame) los pasos de (wiki how|wikihow) (para|sobre) {query}
+(necesito|quiero) (ayuda con|ayuda para|un consejo sobre|un consejo para) {query}, (muéstrame|dime) los pasos de (wiki how|wikihow)
+(puedes|podrías) (buscar|consultar) en (wiki how|wikihow) {query}
+(revisa|mira|consulta) (en |)(wiki how|wikihow) (sobre|) {query}
+(wiki how|wikihow) (pasos|trucos) (para|sobre) {query}

@@ -1,2 +1,13 @@
 (cerca|busca) (a|en|) (wiki how|wikihow) (sobre|com|) {query}
 què (diu|indica|pensa) (wiki how|wikihow) sobre {query}
+(busca|troba) {query} a (wiki how|wikihow)
+com (puc|es pot) {query} (amb ajuda de|fent servir) (wiki how|wikihow)
+(mira|consulta|revisa) (a|en) (wiki how|wikihow) (sobre|per) {query}
+(mostra'm|dona'm) els passos de (wiki how|wikihow) (per a|sobre) {query}
+(necessito|vull) (ajuda amb|ajuda per a|un consell sobre|un consell per a) {query}, (mostra'm|digues-me) els passos de (wiki how|wikihow)
+(obre|llegeix|mostra'm) (l'article|la guia|la pàgina) de (wiki how|wikihow) (sobre|per) {query}
+(pots|podries) (cercar|buscar) a (wiki how|wikihow) {query}
+què (ensenya|recomana) (wiki how|wikihow) (sobre|per a) {query}
+(té|hi ha a) (wiki how|wikihow) (alguna cosa|una guia|consells) (sobre|de) {query}
+(vull|necessito) (la guia|els consells) de (wiki how|wikihow) (sobre|per a) {query}
+(wiki how|wikihow) (passos|trucs) (per a|sobre) {query}

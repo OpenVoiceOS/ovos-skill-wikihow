@@ -26,8 +26,6 @@ ROWS_REJECTED_BY_REQUIRED = {
 }
 # Template lines of the locale that name the service by its short name only.
 LINES_WITHOUT_KEYWORD = {
-    "fa-IR": {"ویکی درباره چه می گوید {query}"},
-    "pl-PL": {"Co wiki mówi o {query}"},
     "ru-RU": {"Что говорит Вики о том, {query}", "поиск Wiki {query}", "что Вики думает о {query}"},
 }
 

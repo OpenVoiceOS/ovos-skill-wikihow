@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.3a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.3a1) (2026-10-22)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.7.2a3...0.7.3a1)
+
+**Merged pull requests:**
+
+- fix: name wikihow in the pl-PL and fa-IR wikihow lines [\#136](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/136) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.7.2a3](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.2a3) (2026-10-14)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.7.2a2...0.7.2a3)
@@ -58,19 +66,19 @@
 
 ## [0.7.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.0a1) (2026-09-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.6.0a1...0.7.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.5.0a1...0.7.0a1)
 
 **Merged pull requests:**
 
 - feat\(locale\): fill fr-FR and it-IT gaps against en-US [\#115](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/115) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
 
-## [0.6.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.6.0a1) (2026-09-17)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.5.0a1...0.6.0a1)
-
 ## [0.5.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.5.0a1) (2026-09-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.5a1...0.5.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.6.0a1...0.5.0a1)
+
+## [0.6.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.6.0a1) (2026-09-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.5a1...0.6.0a1)
 
 **Merged pull requests:**
 
@@ -451,17 +459,9 @@
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.10a1...0.2.10)
 
-**Merged pull requests:**
-
-- Release 0.2.10a1 [\#32](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/32) ([github-actions[bot]](https://github.com/apps/github-actions))
-
 ## [0.2.10a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.10a1) (2024-11-25)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.9...0.2.10a1)
-
-**Merged pull requests:**
-
-- da-dk/translate [\#31](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/31) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 ## [0.2.9](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.9) (2024-11-23)
 

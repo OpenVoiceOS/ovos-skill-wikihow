@@ -1,0 +1,14 @@
+(search|look up|find) {query} on (wiki how|wikihow)
+search (wiki how|wikihow) (for|) {query}
+what does (wiki how|wikihow) (say|think) about {query}
+(can|could) you (search|check) (wiki how|wikihow) for {query}
+(check|browse|look on) (wiki how|wikihow) (for|about) {query}
+(how do|how can) i {query} (according to|on|using) (wiki how|wikihow)
+(i need|i want) (help with|advice on) {query}, (show|tell) me the (wiki how|wikihow) (steps|guide)
+(i need|i want|i'd like) the (wiki how|wikihow) (guide|advice) (for|on) {query}
+(is there|do you have) a (wiki how|wikihow) (page|article|guide) (on|about) {query}
+(show|give) me (the |)(wiki how|wikihow) steps (to|for) {query}
+what (does|can) (wiki how|wikihow) (teach|tell) me (about|on) {query}
+(which|what) (steps|instructions) does (wiki how|wikihow) (give|have) (for|on) {query}
+(wiki how|wikihow) (steps|tricks) (for|to) {query}
+(wiki how|wikihow) (tips|instructions|steps) (for|on) {query}

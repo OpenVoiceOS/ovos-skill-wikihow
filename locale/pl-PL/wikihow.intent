@@ -5,7 +5,7 @@ Znaleźć {query} na wiki jak
 wyszukaj wiki-how {query}
 wyszukaj wiki jak {query}
 Co wikiho mówi o {query}
-Co wiki mówi o {query}
+Co wikihow mówi o {query}
 jak (mogę|można) {query} (z pomocą|przy użyciu) (wiki how|wikihow)
 (możesz|mógłbyś) (poszukać|wyszukać) na (wiki how|wikihow) {query}
 (otwórz|przeczytaj|pokaż) (mi |)(artykuł|poradnik|stronę) (wiki how|wikihow) (o|na temat) {query}

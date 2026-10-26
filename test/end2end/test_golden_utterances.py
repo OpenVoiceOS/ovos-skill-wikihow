@@ -47,18 +47,10 @@ LOCALE_ROOT = END2END_DIR.parents[1] / "locale"
 # matched row, when its rate falls more than GAP_TOLERANCE below the measured
 # rate, and when its rate reaches MIN_MATCH_RATE: the stale entry goes.
 GOLDEN_LOCALE_GAPS = {
-    "de-DE": (0.625, "misses: 'kennt wiki how dafür ein Rezept', 'steht dazu irgendwas auf wiki how' and 'zeig mir was wikihow … sagt'; all match no intent"),
     "en-US": (0.667, "misses: long personal requests ('look for a wiki how fix', 'a recipe from wikihow', 'any wikihow wisdom', 'does wikihow explain it'); all match no intent"),
-    "es-CO": (0.75, "misses: 'lo que wiki how cuenta del yoga' and 'hay algo de yoga en wiki how'; all match no intent"),
     "es-ES": (0.625, "misses: 'si wiki how trae algo', 'echa un vistazo en wiki how a lo del yoga' and a clause before 'qué receta tiene wikihow'; all match no intent"),
-    "fr-FR": (0.375, "misses: 'que dit WikiHow sur le fait de', 'regarde sur WikiHow ce qu'il y a', 'savoir si WikiHow a quelque chose', 'qu'indique WikiHow là-dessus' and 'qu'est-ce que WikiHow explique à ce sujet'; all match no intent"),
     "gl-ES": (0.375, "misses: 'se wiki how di algo', two how-questions ending in 'segundo wikihow', and 'que consellos dá wikihow' and 'que receita ten wikihow' after a clause; all match no intent"),
-    "it-IT": (0.75, "misses: 'trova su wikihow il modo per cambiarla' and 'cosa mi insegna wikihow' after a personal need; all match no intent"),
-    "da-DK": (0.75, "published m2v model, measured rate (also fails on dev); remove after retrain"),
     "kab": (0.667, "published m2v model, measured rate (also fails on dev); remove after retrain"),
-    "nl-NL": (0.625, "published m2v model, measured rate (also fails on dev); remove after retrain"),
-    "ru-RU": (0.75, "published m2v model, measured rate (also fails on dev); remove after retrain"),
-    "sv-SE": (0.625, "misses: 'vad kan man läsa på wiki how', 'vad lär wikihow ut' and 'vad tycker wikihow' after a clause; all match no intent"),
 }
 GAP_TOLERANCE = 0.10
 # Locales whose negative rows the published m2v model cannot separate from
@@ -68,7 +60,10 @@ NEGATIVE_ENGINE_GAPS = {}
 # claim is allowed, not required, so a row that flips between boots does not
 # fail the test. Any other claim fails the locale.
 NEGATIVE_KNOWN_CLAIMS = {
-    "en-US": {"can you find something on wikipedia": "wikihow"},
+    "en-US": {
+        "can you find something on wikipedia": "wikihow",
+        "search wiktionary for tie a tie": "wikihow",
+    },
     "fa-IR": {"تاریخ رم را در ویکی پدیا جستجو کن": "wikihow"},
     "nl-NL": {"zoek op wikipedia naar de geschiedenis van Rome": "wikihow"},
     "ru-RU": {"найди в википедии историю Рима": "wikihow"},

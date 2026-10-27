@@ -1,9 +1,9 @@
 """End-to-end intent-routing tests for the en-US WikiHow skill.
 
 Boots an in-process MiniCroft with the skill loaded and feeds it real
-utterances through the padacioso pipeline, asserting where each one routes and
-how the {query} slot is filled. The network lookup is stubbed so the suite is
-deterministic and offline.
+utterances, asserting where each one routes and how the {query} slot is
+filled. The network lookup is stubbed so the suite is deterministic and
+offline.
 """
 import time
 from unittest import TestCase
@@ -11,14 +11,11 @@ from unittest import TestCase
 from ovos_bus_client.message import Message
 from ovos_bus_client.session import Session
 from ovos_spec_tools import canonical_intent_topic
-from ovoscope import get_minicroft
+from ovoscope.routing import PIPELINE, TALLY, get_prototype_minicroft
 
 SKILL_ID = "ovos-skill-wikihow.openvoiceos"
 LANG = "en-US"
-PIPELINE = [
-    "ovos-padacioso-pipeline-plugin-high",
-    "ovos-padacioso-pipeline-plugin-medium",
-]
+WIKIHOW_INTENT = f"{SKILL_ID}:wikihow"
 
 
 class _RoutingTest(TestCase):
@@ -26,7 +23,7 @@ class _RoutingTest(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.minicroft = get_minicroft([SKILL_ID])
+        cls.minicroft = get_prototype_minicroft([SKILL_ID], lang=LANG)
         cls.skill = cls.minicroft.plugin_skills[SKILL_ID].instance
         # keep the suite offline and deterministic; routing is what we assert
         cls.skill.wikihow.search = lambda *args, **kwargs: []
@@ -41,6 +38,9 @@ class _RoutingTest(TestCase):
         """Emit ``utterance`` and collect the intent + speak messages it yields."""
         intents = []
         spoken = []
+        fired = []
+        self.bus.on("message", lambda raw: fired.append(
+            Message.deserialize(raw).msg_type))
         # ovos-workshop dispatches intent handlers on the canonical topic
         # (".intent" suffix stripped) since 9.3.13a1 - mirror the same
         # canonicalization the skill's register_intent_file uses so this
@@ -57,6 +57,7 @@ class _RoutingTest(TestCase):
                               {"utterances": [utterance], "lang": LANG},
                               {"session": session.serialize()}))
         time.sleep(3)
+        TALLY.assert_routed(utterance, WIKIHOW_INTENT, fired)
         return intents, spoken
 
 

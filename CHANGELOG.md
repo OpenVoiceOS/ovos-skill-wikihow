@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.3a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.3a2) (2026-10-28)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.7.3a1...0.7.3a2)
+
+**Merged pull requests:**
+
+- test: run the end2end suite on the m2v prototype pipeline [\#138](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/138) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.7.3a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.3a1) (2026-10-22)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.7.2a3...0.7.3a1)
@@ -435,25 +443,13 @@
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.11...0.2.12a1)
 
-**Merged pull requests:**
-
-- import galician translations [\#35](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/35) ([JarbasAl](https://github.com/JarbasAl))
-
 ## [0.2.11](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.11) (2024-11-30)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.11a1...0.2.11)
 
-**Merged pull requests:**
-
-- Release 0.2.11a1 [\#34](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/34) ([github-actions[bot]](https://github.com/apps/github-actions))
-
 ## [0.2.11a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.11a1) (2024-11-30)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.10...0.2.11a1)
-
-**Merged pull requests:**
-
-- de-de/translate [\#33](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/33) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 ## [0.2.10](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.10) (2024-11-25)
 

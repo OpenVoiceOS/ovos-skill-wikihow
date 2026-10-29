@@ -18,3 +18,4 @@
 {"utterance": "open the wikipedia app", "lang": "en-US", "machine_generated": false, "needs_manual": false}
 {"utterance": "search wikipedia for tie a tie", "lang": "en-US", "machine_generated": false, "needs_manual": false}
 {"utterance": "search wiktionary for tie a tie", "lang": "en-US", "machine_generated": false, "needs_manual": false}
+{"utterance": "tell me how to boil an egg", "lang": "en-US", "machine_generated": true, "needs_manual": true}

@@ -1,0 +1,17 @@
+cherche {query} sur WikiHow
+cherche sur WikiHow {query}
+que dit l'article WikiHow sur {query}
+montre-moi l'article WikiHow sur {query}
+comment (puis-je|peut-on) {query} selon (WikiHow|Wiki How)
+(donne|trouve)-moi les (étapes|instructions) (WikiHow|Wiki How) (pour|sur) {query}
+(j'ai besoin d'aide|j'ai besoin d'un conseil|je voudrais un conseil) (pour|avec) {query}, (montre|dis)-moi les étapes de (WikiHow|Wiki How)
+(j'ai besoin du|je voudrais le) guide (WikiHow|Wiki How) (sur|pour) {query}
+(j'ai besoin de|je voudrais des) conseils de (WikiHow|Wiki How) (sur|pour) {query}
+(montre|donne)-moi les étapes de (WikiHow|Wiki How) pour {query}
+(ouvre|lis|montre)(-moi|) (l'article|le guide|la page) (WikiHow|Wiki How) (sur|à propos de) {query}
+(peux|pourrais)-tu (chercher|rechercher) (sur|dans) (WikiHow|Wiki How) {query}
+qu'est-ce que (WikiHow|Wiki How) (raconte|propose|explique) (à propos de|au sujet de) {query}
+qu'est-ce que (WikiHow|Wiki How) (m'apprend|enseigne|recommande) (sur|pour) {query}
+(regarde|consulte|vérifie) (sur|dans) (WikiHow|Wiki How) (pour|au sujet de) {query}
+(WikiHow|Wiki How) (a|propose)-t-il (quelque chose|un guide|des conseils) (sur|pour) {query}
+(WikiHow|Wiki How) (étapes|astuces) (pour|sur) {query}

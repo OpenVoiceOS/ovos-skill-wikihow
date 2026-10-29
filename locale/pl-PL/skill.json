@@ -1,0 +1,14 @@
+{
+  "skill_id": "ovos-skill-wikihow.openvoiceos",
+  "source": "https://github.com/OpenVoiceOS/ovos-skill-wikihow",
+  "name": "WikiHow",
+  "description": "Jak zrobić niemal wszystko.",
+  "examples": [
+    "w jaki sposób ugotować jajko",
+    "wyszukaj wiki-how pizza"
+  ],
+  "tags": [
+    "daily",
+    "information"
+  ]
+}

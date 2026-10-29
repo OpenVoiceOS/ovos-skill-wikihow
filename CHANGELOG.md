@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.3a3](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.3a3) (2026-10-29)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.7.3a2...0.7.3a3)
+
+**Merged pull requests:**
+
+- test: cover more wikihow.intent template lines in the routing suite [\#141](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/141) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.7.3a2](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.3a2) (2026-10-28)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.7.3a1...0.7.3a2)
@@ -74,19 +82,19 @@
 
 ## [0.7.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.7.0a1) (2026-09-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.5.0a1...0.7.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.6.0a1...0.7.0a1)
 
 **Merged pull requests:**
 
 - feat\(locale\): fill fr-FR and it-IT gaps against en-US [\#115](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/115) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
 
-## [0.5.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.5.0a1) (2026-09-17)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.6.0a1...0.5.0a1)
-
 ## [0.6.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.6.0a1) (2026-09-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.5a1...0.6.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.5.0a1...0.6.0a1)
+
+## [0.5.0a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.5.0a1) (2026-09-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.4.5a1...0.5.0a1)
 
 **Merged pull requests:**
 
@@ -419,25 +427,13 @@
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.13a1...0.2.13)
 
-**Merged pull requests:**
-
-- Release 0.2.13a1 [\#38](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/38) ([github-actions[bot]](https://github.com/apps/github-actions))
-
 ## [0.2.13a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.13a1) (2024-12-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.12...0.2.13a1)
 
-**Merged pull requests:**
-
-- import basque translations [\#37](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/37) ([JarbasAl](https://github.com/JarbasAl))
-
 ## [0.2.12](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.12) (2024-12-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-wikihow/compare/0.2.12a1...0.2.12)
-
-**Merged pull requests:**
-
-- Release 0.2.12a1 [\#36](https://github.com/OpenVoiceOS/ovos-skill-wikihow/pull/36) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [0.2.12a1](https://github.com/OpenVoiceOS/ovos-skill-wikihow/tree/0.2.12a1) (2024-12-02)
 
